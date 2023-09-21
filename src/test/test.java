@@ -21,7 +21,6 @@ public class test extends ListenerAdapter{
         Object[] events = {
             new test2(),
             new test0(),
-            new clear(),
             new bew(),
             new test(),
         };

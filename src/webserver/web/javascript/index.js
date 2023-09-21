@@ -41,7 +41,7 @@ async function generateHtml() {
             const userName = user.Member;
 
             if(userAvatarData.Avatar === "null"){
-                avatarUrl = "/img/discordAvatar.png";
+                avatarUrl = "/webserver/web/img/discordAvatar.png";
             }else{
                 avatarUrl = userAvatarData.Avatar;
             }
