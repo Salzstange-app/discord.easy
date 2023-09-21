@@ -1,5 +1,6 @@
 package test;
 
+import net.sta.Anotation.Guild;
 import net.sta.Prefix;
 import test.jdatest.bew;
 import net.sta.webserver.Webserver;
@@ -10,7 +11,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
 
-
+@Guild(guildId = "1037829795725197383")
 public class test extends ListenerAdapter{
 
   
