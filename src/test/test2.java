@@ -1,12 +1,12 @@
-package test;//import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
-//import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
+package test;//import net.dv8tion.jda.api.net.sta.events.net.sta.guild.voice.GuildVoiceLeaveEvent;
+//import net.dv8tion.jda.api.net.sta.events.net.sta.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class test2 extends ListenerAdapter {
 /*
 
     public void onMessageReceived(@NotNull MessageReceivedEvent event1) {
-        if (new events.message.MessageReceivedEvent().startsWith("hello")){
+        if (new net.sta.events.message.MessageReceivedEvent().startsWith("hello")){
             System.out.println("lel");
 
             MessageSende messageSend = new MessageSende();

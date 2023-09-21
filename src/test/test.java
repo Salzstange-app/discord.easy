@@ -1,9 +1,9 @@
 package test;
 
-import net.sta.Botmanager.Prefix;
+import net.sta.Prefix;
 import test.jdatest.bew;
-import webserver.Webserver;
-import managers.BotManager;
+import net.sta.webserver.Webserver;
+import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

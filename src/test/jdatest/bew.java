@@ -1,9 +1,9 @@
 package test.jdatest;
 
-import commands.Clear;
-import events.message.MessageHandler;
-import events.message.MessageManager;
-import events.textchannel.TextChannelCreate;
+import net.sta.commands.Clear;
+import net.sta.events.message.MessageHandler;
+import net.sta.events.message.MessageManager;
+import net.sta.events.textchannel.TextChannelCreate;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
@@ -25,7 +25,7 @@ public class bew extends ListenerAdapter {
 					.toCreate();
 
 			for(Guild guild : event.getJDA().getGuilds()) {
-				//System.out.println(guild.getId());
+				//System.out.println(net.sta.guild.getId());
 			}
 			EmbedBuilder builder = new EmbedBuilder();
 			builder.setTitle("Title");
