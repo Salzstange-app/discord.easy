@@ -15,6 +15,8 @@ import static net.sta.events.tempchannel.TempChannel.*;
 
 public class TempChannelPermission extends ListenerAdapter {
 
+	/*
+
 	private Permission voicePermission;
 	private Boolean voiceAllow;
 	private Member voicePermMember;
@@ -131,6 +133,7 @@ public class TempChannelPermission extends ListenerAdapter {
 	 * this.settingCategoryId = settingCategoryId; }
 	 */
 	// Getter und Setter für textChannel
+	/*
 	public TextChannel getTextChannel() {
 		return textChannel;
 	}
@@ -171,4 +174,5 @@ public class TempChannelPermission extends ListenerAdapter {
 		guild.moveVoiceMember(m, vc).queue();
 		this.audioChannel = vc;
 	}
+	*/
 }

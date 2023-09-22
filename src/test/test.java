@@ -2,6 +2,7 @@ package test;
 
 import net.sta.Anotation.Guild;
 import net.sta.Prefix;
+import test.Event.EventHandler;
 import test.jdatest.bew;
 import net.sta.webserver.Webserver;
 import net.sta.managers.BotManager;
@@ -26,6 +27,8 @@ public class test extends ListenerAdapter{
             new bew(),
             new test(),
         };
+
+        EventHandler handler = new EventHandler();
 
         b.setPrefix("!");
         b.setEvents(events);
