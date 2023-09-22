@@ -1,17 +1,6 @@
 package net.sta.events.tempchannel;
 
-import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.*;
-import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
-import java.util.EnumSet;
-import java.util.Random;
-
-import net.sta.managers.BotManager;
-
-import static net.sta.events.tempchannel.TempChannel.*;
 
 public class TempChannelPermission extends ListenerAdapter {
 

@@ -10,10 +10,11 @@ import net.dv8tion.jda.api.requests.restaction.CommandEditAction;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
+import net.sta.events.EventPublisher;
 
 import javax.security.auth.login.LoginException;
 
-public class BotManager {
+public class BotManager extends EventPublisher {
 	
 	public static JDA jda;
 	
@@ -46,10 +47,13 @@ public class BotManager {
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
         
         jda = builder.build();
+
+            System.out.println("nicht gesetzt");
+            setJda(jda);
+            System.out.println("gesetzt");
+
     }
-    
-    
-   
+
 
     public void setEvents(Object[] eventListener) throws InterruptedException {
         jda.awaitReady().addEventListener(eventListener);

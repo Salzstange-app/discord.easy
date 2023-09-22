@@ -1,10 +1,7 @@
 package test;
 
 import net.sta.Anotation.Guild;
-import net.sta.Prefix;
-import test.Event.EventHandler;
 import test.jdatest.bew;
-import net.sta.webserver.Webserver;
 import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -27,14 +24,11 @@ public class test extends ListenerAdapter{
             new bew(),
             new test(),
         };
-
-        EventHandler handler = new EventHandler();
-
         b.setPrefix("!");
         b.setEvents(events);
        
 
-        System.out.println(Prefix.getPrefix());
-        Webserver webserver = new Webserver(BotManager.jda);
+      //  System.out.println(Prefix.getPrefix());
+       // Webserver webserver = new Webserver(BotManager.jda);
     }
 }
