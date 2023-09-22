@@ -12,10 +12,11 @@ public class EventPublisher {
 
     public void addEventListener(EventListener listener) {
         listeners.add(listener);
-        new EventRegister().register();
+        new EventRegister().register(jda);
     }
 
-    protected void setJda(JDA jda) {
+    public void setJda(JDA jda) {
         new Event(jda);
+        this.jda = jda;
     }
 }

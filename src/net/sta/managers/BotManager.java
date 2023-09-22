@@ -47,10 +47,11 @@ public class BotManager extends EventPublisher {
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
         
         jda = builder.build();
-
-            System.out.println("nicht gesetzt");
-            setJda(jda);
-            System.out.println("gesetzt");
+        setJda(jda);
+        try {
+            Thread.sleep(650);
+        }catch (InterruptedException e){
+        }
 
     }
 

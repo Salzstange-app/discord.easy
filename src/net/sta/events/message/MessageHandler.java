@@ -4,11 +4,16 @@ import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.sta.Prefix;
+import net.sta.events.Event;
+import net.sta.events.listener.EventAdapter;
+import org.jetbrains.annotations.NotNull;
 
 public class MessageHandler {
-
 	private Message message;
 	private TextChannel textchannel;
+
+
+
 
 	public MessageHandler(TextChannel textChannel) {
 		textchannel = textChannel;

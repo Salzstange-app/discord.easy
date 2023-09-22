@@ -1,16 +1,18 @@
 package test;
 
 import net.sta.Anotation.Guild;
+import net.sta.Prefix;
+import net.sta.events.EventPublisher;
+import net.sta.webserver.Webserver;
 import test.jdatest.bew;
 import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
 
 
-public class test extends ListenerAdapter{
+public class test extends EventPublisher {
 
   
 	public static Boolean on_of = false;
@@ -25,10 +27,10 @@ public class test extends ListenerAdapter{
             new test(),
         };
         b.setPrefix("!");
-        b.setEvents(events);
+        b.addEventListener(new bew());
        
 
-      //  System.out.println(Prefix.getPrefix());
-       // Webserver webserver = new Webserver(BotManager.jda);
+        System.out.println(Prefix.getPrefix());
+        Webserver webserver = new Webserver(BotManager.jda);
     }
 }

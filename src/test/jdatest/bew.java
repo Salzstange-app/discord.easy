@@ -1,18 +1,22 @@
 package test.jdatest;
 
-import net.sta.commands.Clear;
-import net.sta.events.message.MessageHandler;
-import net.sta.events.message.MessageManager;
-import net.sta.events.textchannel.TextChannelCreate;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
+import net.sta.events.Event;
+import net.sta.events.listener.EventAdapter;
 import org.jetbrains.annotations.NotNull;
 
-public class bew extends ListenerAdapter {
+public class bew extends EventAdapter {
+
+	@Override
+	public void onMessageReceivedEvent(@NotNull Event event){
+		event.getJDA().getGuildById("1037829795725197383").getTextChannelById("1154379016392945766").sendMessage("tetet").queue();
+	}
+
+	/*
+
+
 
 	@Override
 	public void onMessageReceived(@NotNull MessageReceivedEvent event){
@@ -50,6 +54,7 @@ public class bew extends ListenerAdapter {
 		/*
 		 * Thread thread = new Thread(m); thread.run(); // Thread starten
 		 */
+	/*
 
 		MessageHandler handler = new MessageHandler(event.getChannel().asTextChannel());
 		if (handler.startsWith("hallo")) {
@@ -64,4 +69,6 @@ public class bew extends ListenerAdapter {
 		}
 
 	}
+
+	 */
 }
