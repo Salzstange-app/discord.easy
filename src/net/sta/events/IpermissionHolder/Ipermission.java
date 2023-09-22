@@ -1,6 +1,6 @@
 package net.sta.events.IpermissionHolder;
 
-import net.sta.guild.GuildHandler;
+import net.sta.guild.IGuildHandler;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.IPermissionHolder;
 import net.dv8tion.jda.api.entities.Member;
@@ -13,7 +13,7 @@ public class Ipermission {
 	private Member member = null;
 	private User user; 
 	private Role role = null;
-	private Guild guild = new GuildHandler().getGuild();
+	private Guild guild = new IGuildHandler().getGuild();
 	
 	
 	public Ipermission(IPermissionHolder IPermHolder) {
