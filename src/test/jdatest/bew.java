@@ -12,6 +12,8 @@ public class bew extends EventAdapter {
 	@Override
 	public void onMessageReceivedEvent(@NotNull Event event){
 		event.getJDA().getGuildById("1037829795725197383").getTextChannelById("1154379016392945766").sendMessage("tetet").queue();
+
+		System.out.println("test");
 	}
 
 	/*
