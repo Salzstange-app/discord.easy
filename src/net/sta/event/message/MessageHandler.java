@@ -1,21 +1,21 @@
-package net.sta.events.message;
+package net.sta.event.message;
 
+import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.sta.Prefix;
-import net.sta.events.Event;
-import net.sta.events.listener.EventAdapter;
-import org.jetbrains.annotations.NotNull;
+import net.sta.event.Event;
 
-public class MessageHandler {
+public class MessageHandler extends Event{
 	private Message message;
 	private TextChannel textchannel;
 
 
 
 
-	public MessageHandler(TextChannel textChannel) {
+	public MessageHandler(TextChannel textChannel, JDA jda) {
+		super(jda);
 		textchannel = textChannel;
 		message = MessageManager.getLastMessage(textChannel);
 	}

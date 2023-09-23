@@ -1,4 +1,4 @@
-package net.sta.events.message;
+package net.sta.event.message;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Message;

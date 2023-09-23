@@ -1,6 +1,6 @@
-package net.sta.events.textchannel.threadchannel;
+package net.sta.event.textchannel.threadchannel;
 
-import net.sta.events.textchannel.TextChannelCreate;
+import net.sta.event.textchannel.TextChannelCreate;
 import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.entities.Guild;

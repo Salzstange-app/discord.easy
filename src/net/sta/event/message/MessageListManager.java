@@ -1,4 +1,4 @@
-package net.sta.events.message;
+package net.sta.event.message;
 
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import java.util.HashMap;

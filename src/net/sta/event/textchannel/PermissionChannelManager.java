@@ -1,4 +1,4 @@
-package net.sta.events.textchannel;
+package net.sta.event.textchannel;
 
 import lombok.Getter;
 import lombok.Setter;

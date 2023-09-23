@@ -1,7 +1,7 @@
-package net.sta.events;
+package net.sta.event;
 
 import net.dv8tion.jda.api.JDA;
-import net.sta.events.listener.EventListener;
+import net.sta.event.listener.EventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class EventPublisher {
 
     public void addEventListener(EventListener listener) {
         listeners.add(listener);
-        new EventRegister().register(jda);
+        new EventRegister();
     }
 
     public void setJda(JDA jda) {

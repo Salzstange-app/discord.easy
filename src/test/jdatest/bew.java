@@ -1,21 +1,17 @@
 package test.jdatest;
 
-import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.sta.events.Event;
-import net.sta.events.listener.EventAdapter;
+import net.dv8tion.jda.api.events.GenericEvent;
+import net.sta.event.Event;
+import net.sta.event.events.MessageReceivedEvent;
+import net.sta.event.listener.EventAdapter;
 import org.jetbrains.annotations.NotNull;
 
 public class bew extends EventAdapter {
 
+
 	@Override
-	public void onMessageReceivedEvent(@NotNull Event event){
-		event.getJDA().getGuildById("1037829795725197383").getTextChannelById("1154379016392945766").sendMessage("tetet").queue();
-
-		System.out.println("test");
-
-		System.out.println("Fortnite");
+	public void onMessageReceivedEvent(@NotNull MessageReceivedEvent event) {
+		System.out.println(event.getMessageId());
 	}
 
 	/*

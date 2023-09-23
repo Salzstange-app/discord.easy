@@ -1,4 +1,4 @@
-package net.sta.events.message.embedbuilder;
+package net.sta.event.message.embedbuilder;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 

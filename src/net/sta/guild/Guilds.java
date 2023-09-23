@@ -2,8 +2,12 @@ package net.sta.guild;
 
 import net.dv8tion.jda.api.entities.Guild;
 
-public interface Guilds{
+import java.util.List;
 
-    public Guild getGuild();
-    public IGuild getGuildById();
+public interface Guilds {
+
+     Guild getGuild();
+     Guild getGuildById(String id);
+     Guild getGuildById(Long id);
+     List<Guild> getGuilds();
 }

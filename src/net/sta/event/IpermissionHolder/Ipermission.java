@@ -1,4 +1,4 @@
-package net.sta.events.IpermissionHolder;
+package net.sta.event.IpermissionHolder;
 
 import net.sta.guild.IGuildHandler;
 import net.dv8tion.jda.api.entities.Guild;

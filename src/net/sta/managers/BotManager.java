@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.requests.restaction.CommandEditAction;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import net.sta.events.EventPublisher;
+import net.sta.event.EventPublisher;
 
 import javax.security.auth.login.LoginException;
 

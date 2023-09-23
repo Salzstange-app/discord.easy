@@ -2,7 +2,7 @@ package test;
 
 import net.sta.Anotation.Guild;
 import net.sta.Prefix;
-import net.sta.events.EventPublisher;
+import net.sta.event.EventPublisher;
 import net.sta.webserver.Webserver;
 import test.jdatest.bew;
 import net.sta.managers.BotManager;
