@@ -2,7 +2,6 @@ package net.sta.event;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.sta.event.events.MessageReceivedEvent;
 import net.sta.event.listener.EventListener;
 
 import java.lang.invoke.MethodHandle;

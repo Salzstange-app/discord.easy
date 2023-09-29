@@ -2,10 +2,10 @@ package net.sta.event.listener;
 
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.UpdateEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.internal.utils.ClassWalker;
 import net.sta.event.Event;
-import net.sta.event.events.MessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.invoke.MethodHandle;
