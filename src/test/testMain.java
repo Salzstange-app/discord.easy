@@ -21,11 +21,9 @@ public class testMain extends EventPublisher {
         BotManager b = new BotManager("MTA1NjM0NDA5OTM2OTc4NzQ3Mw.GwPFbg.AFTT4X0GDALz74dUfnotQVFn8YJwQltRDZSWTE", Activity.watching("to the Moon"), OnlineStatus.ONLINE);
         Object[] events = {
             new test0(),
-            new bew(),
             new testMain(),
         };
         b.setPrefix("!");
-        b.addEventListener(new bew());
        
 
         System.out.println(Prefix.getPrefix());

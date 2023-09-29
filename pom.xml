@@ -5,32 +5,34 @@
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
-	<plugins>
-	      <plugin>
-	        <artifactId>maven-compiler-plugin</artifactId>
-	        <version>3.8.1</version>
-	          <executions>
-	              <execution>
-	                  <configuration>
-	                      <archive>
-	                          <manifest>
-	                              <mainClass>
-	                                  testMain
-	                              </mainClass>
-	                          </manifest>
-	                      </archive>
-	                      <release>17</release>
-	                  </configuration>
-	              </execution>
-	          </executions>
-	
-	
-	          <configuration>
-	              <source>20</source>
-	              <target>20</target>
-	          </configuration>
-	      </plugin>
-	 </plugins>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+          <executions>
+              <execution>
+                  <configuration>
+                      <archive>
+                          <manifest>
+                              <mainClass>
+                                  testMain
+                              </mainClass>
+                          </manifest>
+                      </archive>
+                      <release>17</release>
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>20</source>
+                <target>20</target>
+            </configuration>
+        </plugin>
+    </plugins>
   </build>
   
    <dependencies>
