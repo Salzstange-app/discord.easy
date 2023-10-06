@@ -19,8 +19,8 @@ public class BotManager extends EventPublisher {
 	
 	public static JDA jda;
 	
-    private Activity ACTIVITY;
-    private OnlineStatus ONLINESTATUS;
+    private final Activity ACTIVITY;
+    private final OnlineStatus ONLINESTATUS;
 
     public static String Prefix;
 
@@ -30,7 +30,7 @@ public class BotManager extends EventPublisher {
         createBot(token);
     }
 
-    protected void createBot(String token) throws LoginException {
+    protected void createBot(String token)  {
         JDABuilder builder = JDABuilder.createDefault(token);
 
         builder.setChunkingFilter(ChunkingFilter.ALL);
@@ -51,7 +51,7 @@ public class BotManager extends EventPublisher {
         jda = builder.build();
         try {
             Thread.sleep(650);
-        }catch (InterruptedException e){
+        }catch (InterruptedException ignored){
         }
 
     }

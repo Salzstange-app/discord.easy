@@ -1,10 +1,11 @@
 package net.sta.event.textchannel;
 
-import net.dv8tion.jda.api.JDA;
-import net.sta.event.Event;
+import net.dv8tion.jda.api.entities.Guild;
 
-public class TextChannelCreateEvent extends Event {
-    public TextChannelCreateEvent(JDA jda) {
-        super(jda);
+public class TextChannelCreateEvent  extends PermissionChannelManager{
+
+
+    public TextChannelCreateEvent(Guild guild, String categoryId) {
+        super(guild, categoryId);
     }
 }

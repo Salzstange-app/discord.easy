@@ -1,12 +1,12 @@
 package net.sta.event.textchannel.threadchannel;
 
-import net.sta.event.textchannel.TextChannelCreate12424;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel;
 
-public class ThreadChannelCreate extends TextChannelCreate12424 {
+public class ThreadChannelCreate extends ListenerAdapter {
 
 
 
