@@ -8,6 +8,5 @@ public class tste extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         super.onMessageReceived(event);
-        event.getMessage();
     }
 }
