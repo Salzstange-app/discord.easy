@@ -7,6 +7,7 @@ import net.sta.webserver.Webserver;
 import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
+import test.jdatest.tste;
 
 import javax.security.auth.login.LoginException;
 
@@ -23,17 +24,22 @@ public class testMain extends EventPublisher {
             new test0(),
             new testMain(),
         };
+        b.addListener(new tste());
         b.setPrefix("!");
        
 
+        /*
         System.out.println(Prefix.getPrefix());
         Webserver webserver = new Webserver(BotManager.jda);
 
-
+*/
+        /*
         Guild ab= testMain.class.getAnnotation(Guild.class);
         if (ab != null) {
             System.out.print(ab.value() + "; ");
         }
+
+         */
 
 
        // System.out.println(testMain.class.getAnnotation(Guild.class).value());

@@ -2,21 +2,20 @@ package net.sta.event;
 
 import net.dv8tion.jda.api.JDA;
 import net.sta.event.listener.EventListener;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EventPublisher {
+
+    public static final List<EventListener> listeners = new ArrayList<>();
+
     protected JDA jda;
-    protected static List<EventListener> listeners = new ArrayList<>();
-
-    public void addEventListener(EventListener listener) {
+    public void addListener(EventListener listener) {
         listeners.add(listener);
-        new EventRegister();
+    }
+    public void addListener(EventListener[] listener) {
+        listeners.addAll(Arrays.asList(listener));
     }
 
-    public void setJda(JDA jda) {
-        new Event(jda);
-        this.jda = jda;
-    }
 }

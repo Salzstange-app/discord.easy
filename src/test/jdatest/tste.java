@@ -1,12 +1,15 @@
 package test.jdatest;
 
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.sta.event.listener.EventAdapter;
+import net.sta.event.message.MessageReceivedEvent;
+import org.jetbrains.annotations.NotNull;
 
-public class tste extends ListenerAdapter {
+import java.util.Random;
+
+public class tste extends EventAdapter {
 
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
-        super.onMessageReceived(event);
+    public void onMessageReceivedEvent(@NotNull MessageReceivedEvent event) {
+
     }
 }
