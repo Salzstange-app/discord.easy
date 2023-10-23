@@ -14,9 +14,8 @@ public class ThreadChannelCreate extends ListenerAdapter {
 	@Getter @Setter Boolean aBoolean;
 	@Getter ThreadChannel threadChannel;
 	public ThreadChannelCreate(Guild Guild, String CategoryID) {
-		super(Guild, CategoryID);
 	}
-
+/*
 	public void CreateThreadChannel(String name){
 
 		assert getTextChannel() != null;
@@ -29,6 +28,8 @@ public class ThreadChannelCreate extends ListenerAdapter {
 			//und was bringen diese komischen @dinger?
 		}
 	}
+
+ */
 	
 	
 }

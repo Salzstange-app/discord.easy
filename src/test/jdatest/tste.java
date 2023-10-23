@@ -9,5 +9,6 @@ public class tste extends EventAdapter {
     @Override
     public void onMessageReceivedEvent(@NotNull MessageReceivedEvent event) {
 
+        System.out.println(event.getMessage().getContentRaw());
     }
 }

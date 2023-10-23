@@ -7,6 +7,6 @@ import net.sta.event.*;
 public interface EventListener {
 
      void onMessageReceivedEvent(@NotNull MessageReceivedEvent event);
-     void onTextChannelCreate(@NotNull Event event) ;
+     void onW(@NotNull Event event);
 
 }
