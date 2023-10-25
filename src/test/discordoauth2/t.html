@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin-Seite</title>
+    <style>
+        /* CSS-Stile */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Hintergrundfarbe */
+        }
+
+        .navbar {
+            background-color: #333;
+            position: fixed;
+            width: 200px; /* Breite der Navigationsleiste */
+            height: 100%; /* Volle Höhe des Bildschirms */
+            overflow: hidden;
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: left; /* Text links ausrichten */
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #555; /* Hervorhebungsfarbe beim Überfahren mit der Maus */
+        }
+
+        .profile {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <a href="#home">Startseite</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#settings">Einstellungen</a>
+</div>
+<div class="profile">
+    <img id="profile-image" src="default_profile.jpg" alt="Profilbild" width="50" height="50">
+</div>
+
+<h1>Willkommen auf der Admin-Seite</h1>
+
+<script>
+
+
+
+    document.getElementById("profile-image").addEventListener("click", function (){
+
+        var txt;
+        if (confirm("Press a button!")) {
+            txt = "You pressed OK!";
+        } else {
+            txt = "You pressed Cancel!";
+        }
+        console.log(txt)
+    });
+    function fetchUserData() {
+        // Die URL des API-Endpunkts
+        const apiUrl = "http://localhost:9595/data"; // Ersetzen Sie durch Ihre tatsächliche API-URL.
+
+        // Eine GET-Anfrage an die API senden
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(userData => {
+                // Elemente im HTML mit Daten aus der API aktualisieren
+                document.getElementById("profile-image").src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+                // document.getElementById("username").textContent = userData.username;
+                //    document.getElementById("id").textContent = userData.id;
+                //  document.getElementById("email").textContent = userData.email;
+                //     document.getElementById("verified").textContent = userData.verified ? "Ja" : "Nein";
+            })
+            .catch(error => {
+                console.error("Fehler beim Abrufen von Benutzerdaten:", error);
+            });
+    }
+
+    // Die Benutzerdaten beim Laden der Seite abrufen
+    fetchUserData();
+
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@ public class GiveawayLogik extends ListenerAdapter {
 
     ArrayList<Member> allMember = new ArrayList<>();
     Map<Member, Integer> MemberWinnerList = new HashMap<>();
-    public Member getWinner(){
+    protected Member getWinner(){
         return allMember.get(new Random().nextInt(0, MemberWinnerList.size()));
     }
 

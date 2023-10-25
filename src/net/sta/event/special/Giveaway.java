@@ -28,7 +28,6 @@ public class Giveaway extends GiveawayTimeManager{
         } else if (textchannelId != null) {
             msgId = jda.getTextChannelById(textchannelId).sendMessageEmbeds(Embed).setActionRow(Buttons()).complete().getId();
         }
-        startTimer(msgId);
     }
 
     private Button Buttons(){

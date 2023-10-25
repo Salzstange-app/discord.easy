@@ -13,13 +13,7 @@ public class IGuildHandler {
 	
 	private static Guild guild;
 	@Setter(AccessLevel.PROTECTED) private static String guildId;
-	public IGuildHandler() {
-
-
-
-
-
-	}
+	public IGuildHandler() {}
 	public static Guild getGuild() {
 		return BotManager.jda.getGuildById(guildId);
 	}
