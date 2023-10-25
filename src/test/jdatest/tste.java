@@ -14,14 +14,7 @@ public class tste extends EventAdapter {
 
 
         if (event.equals("test")){
-            Giveaway giveaway = new Giveaway("1037868392117436488");
-            EmbedBuilder builder = new EmbedBuilder();
-            builder.setTitle("zett");
-            builder.setDescription("get");
-            builder.setFooter("gfegt");
 
-            giveaway.setEmbed(builder.build());
-            giveaway.Start();
         }
 
 
