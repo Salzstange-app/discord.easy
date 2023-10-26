@@ -2,6 +2,7 @@ package test.discordoauth2;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.dv8tion.jda.api.entities.User;
 import spark.Spark;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -48,25 +49,34 @@ public class Test {
             String code = request.queryParams("code");
 
             // Token-Austausch
-           // HttpsURLConnection connection= tokenTausch(code);
+            HttpsURLConnection connection= tokenTausch(code);
 
-           // if (connection.getResponseCode() == 200) {
+            if (connection.getResponseCode() == 200) {
 
-             //   JsonObject responseToken = getToken(connection);
-               // UserData.add(getUserData(responseToken));
+                JsonObject responseToken = getToken(connection);
+
+                if (!UserData.isEmpty()) {
+                    for (String s : UserData) {
+                        System.out.println("for " + s);
+                        if (UserData.contains(s)) {
+                            System.out.println("test" + s);
+                        }
+                    }
+                }
+                UserData.add(getUserData(responseToken));
                 response.redirect("http://localhost:63342/discord.easy/src/test/discordoauth2/test.html?_ijt=n42lgvil12cd6cmhob67d40dvd&_ij_reload=RELOAD_ON_SAVE");
 
-         //   }
+            }
 
             return "Fehler beo der Authentifizierung";
         });
         Spark.get("/data", (request, response) -> {
-            return UserData.get(0);
+            return UserData;
         });
     }
 
 
-    /*
+
     private static JsonObject getToken(HttpsURLConnection connection) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String line;
@@ -98,5 +108,5 @@ public class Test {
         return connection;
     }
 
-     */
+
 }
