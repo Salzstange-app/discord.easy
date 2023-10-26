@@ -1,55 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin-Seite</title>
+    <title>Test</title>
     <style>
-        /* CSS-Stile */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2; /* Hintergrundfarbe */
+        body{
+            background-color: darkgrey;
         }
-
-        .navbar {
-            background-color: #333;
-            position: fixed;
-            width: 200px; /* Breite der Navigationsleiste */
-            height: 100%; /* Volle Höhe des Bildschirms */
-            overflow: hidden;
-        }
-
-        .navbar a {
-            display: block;
-            color: white;
-            text-align: left; /* Text links ausrichten */
-            padding: 14px 16px;
+        aside .navbar {
             text-decoration: none;
         }
 
-        .navbar a:hover {
-            background-color: #555; /* Hervorhebungsfarbe beim Überfahren mit der Maus */
-        }
-
-        .profile {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
 
     </style>
 </head>
 <body>
-<div class="navbar">
-    <a href="#home">Startseite</a>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#settings">Einstellungen</a>
-</div>
+<aside>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#settings">Settings</a>
+    </div>
+</aside>
+
 <div class="profile">
     <img id="profile-image" src="default_profile.jpg" alt="Profilbild" width="50" height="50">
 </div>
+<div class="test-div", id="test">
 
-<h1>Willkommen auf der Admin-Seite</h1>
+</div>
 
 <script>
 
@@ -75,6 +53,7 @@
             .then(userData => {
                 // Elemente im HTML mit Daten aus der API aktualisieren
                 document.getElementById("profile-image").src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+                document.getElementById("test").innerHTML = userData.username + userData.id + userData.email;
                 // document.getElementById("username").textContent = userData.username;
                 //    document.getElementById("id").textContent = userData.id;
                 //  document.getElementById("email").textContent = userData.email;
