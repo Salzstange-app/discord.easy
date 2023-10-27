@@ -10,7 +10,7 @@ public interface VoiceLevel {
     default int getVoicePlayerTime(Member member){
         return playerVoiceTimer.get(member);
     }
-    default Boolean canGetXp(Member member){
+    default Boolean canGetVoiceXp(Member member){
         return !playerVoiceTimer.containsKey(member);
     }
 }

@@ -1,13 +1,15 @@
 package net.sta.event.level;
 
 import net.dv8tion.jda.api.entities.Member;
+
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class LevelManager implements MessageLevel, VoiceLevel, Xp{
+public class LevelManager implements MessageLevel, VoiceLevel, Xp {
 
-    static HashMap<Member, Integer> playerXP = new HashMap<>();
+    public static HashMap<Member, Integer> playerXP = new HashMap<>();
     private final Boolean bool;
     public LevelManager(Boolean voice){
         this.bool = voice;
@@ -17,6 +19,9 @@ public class LevelManager implements MessageLevel, VoiceLevel, Xp{
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
+
+                try {
+
 
                     for (Member member : playerMessageTimer.keySet()) {
                         if (bool) {
@@ -28,50 +33,18 @@ public class LevelManager implements MessageLevel, VoiceLevel, Xp{
                             if (getVoicePlayerTime(member) == 0) {
                                 playerVoiceTimer.remove(member);
                             }
-                        }else {
+                        } else {
                             setMessagePlayerTime(member, getMessagePlayerTime(member) - 1);
                             if (getMessagePlayerTime(member) == 0) {
                                 playerMessageTimer.remove(member);
                             }
                         }
                     }
+                }catch (ConcurrentModificationException ignored){
+
+                }
             }
         };
-        new Timer().schedule(timerTask, 100, 100);
-    }
-
-    @Override
-    public int getPlayerXp(Member member) {
-        return MessageLevel.super.getPlayerXp(member);
-    }
-
-    @Override
-    public void setMessagePlayerTime(Member member, int num) {
-        MessageLevel.super.setMessagePlayerTime(member, num);
-    }
-
-    @Override
-    public int getMessagePlayerTime(Member member) {
-        return MessageLevel.super.getMessagePlayerTime(member);
-    }
-
-    @Override
-    public void setVoicePlayerTime(Member member, int num) {
-        VoiceLevel.super.setVoicePlayerTime(member, num);
-    }
-
-    @Override
-    public int getVoicePlayerTime(Member member) {
-        return VoiceLevel.super.getVoicePlayerTime(member);
-    }
-
-    @Override
-    public Boolean canGetXp(Member member) {
-        return MessageLevel.super.canGetXp(member);
-    }
-
-    @Override
-    public void randXp(Member member, Integer xP, Integer oldXp) {
-        Xp.super.randXp(member, xP, oldXp);
+        new Timer().schedule(timerTask, 1000, 1000);
     }
 }

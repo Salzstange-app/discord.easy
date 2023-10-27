@@ -7,10 +7,13 @@ import java.util.Random;
 import static net.sta.event.level.LevelManager.playerXP;
 
 public interface Xp {
-    default void randXp(Member member, Integer xP, Integer oldXp){
-        if (!playerXP.containsKey(member))
-            playerXP.put(member, 0);
-        playerXP.put(member, oldXp + new Random().nextInt(0,xP));
+    default void randXp(Member member, Integer xP){
+        if (!playerXP.containsKey(member)) {
+            playerXP.put(member, 1);
+        }else {
+            int xe = new Random().nextInt(1, xP);
+            playerXP.put(member, playerXP.get(member) + xe);
+        }
     }
 
 }

@@ -1,9 +1,8 @@
 package test;
 
 import net.sta.Anotation.Guild;
-import net.sta.Prefix;
 import net.sta.event.EventPublisher;
-import net.sta.webserver.Webserver;
+import net.sta.event.level.LevelEvent;
 import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -26,6 +25,9 @@ public class testMain extends EventPublisher {
         };
         b.addListener(new tste());
         b.setPrefix("!");
+
+        LevelEvent levelEvent = new LevelEvent(false);
+        levelEvent.startLevel();
        
 
         /*

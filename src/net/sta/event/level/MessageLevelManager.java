@@ -13,9 +13,11 @@ public class MessageLevelManager extends ListenerAdapter implements MessageLevel
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (!event.isFromGuild() && event.getAuthor().isBot())return;
-        if (canGetXp(event.getMember())){
-            setMessagePlayerTime(event.getMember(), 10);
-            randXp(event.getMember(), 10, playerXp.get(event.getMember()));
+        if (canGetMessageXp(event.getMember())){
+            setMessagePlayerTime(event.getMember(), 1);
+            int oldXp = playerXp.get(event.getMember()) != null ? playerXp.get(event.getMember()) : 0;
+            randXp(event.getMember(), 10);
+
         }
     }
 }

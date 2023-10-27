@@ -11,6 +11,7 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import net.sta.event.EventPublisher;
+import net.sta.event.level.MessageLevelManager;
 import net.sta.event.message.MessageGetter;
 
 import javax.security.auth.login.LoginException;
@@ -44,11 +45,12 @@ public class BotManager extends EventPublisher {
                 GatewayIntent.GUILD_INVITES);
         builder.enableCache(CacheFlag.ONLINE_STATUS);
         builder.addEventListeners(new MessageGetter());
-
+        builder.addEventListeners(new MessageLevelManager());
         builder.setStatus(ONLINESTATUS == null ? OnlineStatus.ONLINE : ONLINESTATUS);      
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
         
         jda = builder.build();
+
         try {
             Thread.sleep(650);
         }catch (InterruptedException ignored){

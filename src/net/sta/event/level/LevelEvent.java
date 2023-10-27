@@ -1,7 +1,7 @@
 package net.sta.event.level;
 
 @SuppressWarnings("unused")
-public class LevelEvent  extends LevelManager {
+public class LevelEvent extends LevelManager {
     Boolean bool;
     public LevelEvent(Boolean Voice){
         super(Voice);
