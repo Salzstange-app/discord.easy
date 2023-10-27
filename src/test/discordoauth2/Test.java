@@ -27,7 +27,7 @@ public class Test {
 
         port(9595);
         before((request, response) -> {
-            response.header("Access-Control-Allow-Origin", "http://localhost:63342");
+            response.header("Access-Control-Allow-Origin", "http://localhost:9595");
             response.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
             response.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Content-Length, Accept, Origin");
             response.type("application/json");
@@ -60,11 +60,15 @@ public class Test {
                         System.out.println("for " + s);
                         if (UserData.contains(s)) {
                             System.out.println("test" + s);
+                            System.out.println(UserData.size());
+                        }else {
+                            UserData.add(getUserData(responseToken));
                         }
                     }
+                }else {
+                    UserData.add(getUserData(responseToken));
                 }
-                UserData.add(getUserData(responseToken));
-                response.redirect("http://localhost:63342/discord.easy/src/test/discordoauth2/test.html?_ijt=n42lgvil12cd6cmhob67d40dvd&_ij_reload=RELOAD_ON_SAVE");
+                response.redirect("http://127.0.0.1:5500/discord/test.html");
 
             }
 
