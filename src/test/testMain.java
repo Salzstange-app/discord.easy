@@ -26,7 +26,7 @@ public class testMain extends EventPublisher {
         b.addListener(new tste());
         b.setPrefix("!");
 
-        LevelEvent levelEvent = new LevelEvent(false);
+        LevelEvent levelEvent = new LevelEvent(true);
         levelEvent.startLevel();
        
 

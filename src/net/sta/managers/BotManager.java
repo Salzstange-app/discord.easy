@@ -11,10 +11,9 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import net.sta.event.EventPublisher;
-import net.sta.event.level.MessageLevelManager;
+import net.sta.event.level.MessageLevel;
 import net.sta.event.message.MessageGetter;
-
-import javax.security.auth.login.LoginException;
+import java.util.Objects;
 
 public class BotManager extends EventPublisher {
 	
@@ -25,7 +24,7 @@ public class BotManager extends EventPublisher {
 
     public static String Prefix;
 
-    public BotManager(String token, Activity activity, OnlineStatus onlineStatus) throws LoginException {
+    public BotManager(String token, Activity activity, OnlineStatus onlineStatus) {
         this.ACTIVITY = activity;
         this.ONLINESTATUS = onlineStatus;
         createBot(token);
@@ -45,7 +44,7 @@ public class BotManager extends EventPublisher {
                 GatewayIntent.GUILD_INVITES);
         builder.enableCache(CacheFlag.ONLINE_STATUS);
         builder.addEventListeners(new MessageGetter());
-        builder.addEventListeners(new MessageLevelManager());
+        builder.addEventListeners(new MessageLevel());
         builder.setStatus(ONLINESTATUS == null ? OnlineStatus.ONLINE : ONLINESTATUS);      
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
         
@@ -67,17 +66,18 @@ public class BotManager extends EventPublisher {
         Prefix = prefix;
     }
 
+    @SuppressWarnings("unused")
     public CommandEditAction upsertGuildCommand(String name, String desc, Object eventListener) {
         try {
             if (jda.awaitReady().getGuildById(jda.getGuilds().get(0).getId()) == null){
                 return null;
             }else {
                 jda.awaitReady().addEventListener(eventListener);
-                Command cmd = jda.awaitReady().getGuildById(jda.getGuilds().get(0).getId()).upsertCommand(name, desc).complete();
+                Command cmd = Objects.requireNonNull(jda.awaitReady().getGuildById(jda.getGuilds().get(0).getId())).upsertCommand(name, desc).complete();
                 return cmd.editCommand();
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
             return null;
         }
     }

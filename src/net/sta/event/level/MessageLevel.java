@@ -1,20 +1,18 @@
 package net.sta.event.level;
 
-import net.dv8tion.jda.api.entities.Member;
-import java.util.HashMap;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.sta.event.events.XpManager;
 
-public interface MessageLevel {
-    HashMap<Member, Integer> playerMessageTimer = new HashMap<>();
 
-    default void setMessagePlayerTime(Member member, int num){
-        playerMessageTimer.put(member, num);
+public class MessageLevel extends ListenerAdapter implements net.sta.event.level.Manager.MessageLevel, XpManager {
+    @Override
+    public void onMessageReceived(MessageReceivedEvent event) {
+        if (!event.isFromGuild() && event.getAuthor().isBot())return;
+        if (canGetMessageXp(event.getMember())){
+            setMessagePlayerTime(event.getMember(), 10);
+            randXp(event.getMember(), 10);
+
+        }
     }
-    default int getMessagePlayerTime(Member member){
-        return playerMessageTimer.get(member);
-    }
-    default Boolean canGetMessageXp(Member member){
-        return !playerMessageTimer.containsKey(member);
-    }
-
-
 }

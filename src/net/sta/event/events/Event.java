@@ -1,4 +1,4 @@
-package net.sta.event;
+package net.sta.event.events;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;

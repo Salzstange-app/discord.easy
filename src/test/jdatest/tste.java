@@ -12,7 +12,7 @@ public class tste extends EventAdapter {
     public void onMessageReceivedEvent(@NotNull MessageReceivedEvent event) {
 
         if (event.equals("test")){
-           int test =  LevelManager.playerXP.get(event.getMessage().getMember());
+           int test =  LevelManager.getPlayerXP(event.getMessage().getMember());
             System.out.println(test);
             event.sendMessage("du hast " + test + " xp");
         }

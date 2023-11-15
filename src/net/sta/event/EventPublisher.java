@@ -5,7 +5,7 @@ import net.sta.event.listener.EventListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+@SuppressWarnings("unused")
 public class EventPublisher {
 
     public static final List<EventListener> listeners = new ArrayList<>();
