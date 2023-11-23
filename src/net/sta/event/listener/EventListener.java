@@ -7,6 +7,6 @@ import org.jetbrains.annotations.NotNull;
 public interface EventListener {
 
      void onMessageReceivedEvent(@NotNull MessageReceivedEvent event);
-     void onW(@NotNull Event event);
+     void onEvent(@NotNull Event event);
 
 }
