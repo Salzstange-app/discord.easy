@@ -6,6 +6,7 @@ import net.sta.event.level.LevelEvent;
 import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
+import net.sta.webserver.Webserver;
 import test.jdatest.tste;
 
 import javax.security.auth.login.LoginException;
@@ -23,7 +24,9 @@ public class testMain extends EventPublisher {
             new test0(),
             new testMain(),
         };
-        b.addListener(new tste());
+
+        Webserver webserver = new Webserver(b.jda);
+       // b.addListener(new tste());
         b.setPrefix("!");
 
         LevelEvent levelEvent = new LevelEvent(true);

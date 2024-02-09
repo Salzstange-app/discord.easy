@@ -61,6 +61,46 @@ async function generateHtml() {
 
 // Daten abrufen und anzeigen
 
+const test = document.getElementById("send");
+
+const testinput = document.getElementById("text");
+
+function kickPersonById() {
+    if (!testinput == null){
+
+    }
+}
+test.addEventListener('click', function () {
+    console.log("l");
+
+
+    fetch('http://localhost:8080/api/dc/KickUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            // Weitere Header hier hinzufügen, falls erforderlich
+        },
+        body: JSON.stringify({
+            // Daten, die du senden möchtest
+            "test" : testinput,
+        }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Antwort als JSON parsen
+        })
+        .then(data => {
+            console.log('Antwort vom Server:', data);
+        })
+        .catch(error => {
+            console.error('Fetch Error:', error);
+        });
+    console.log("etet");
+});
+
+
 
 const userNav = document.getElementById("user");
 

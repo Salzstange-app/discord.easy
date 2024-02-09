@@ -16,6 +16,7 @@ public class Webserver {
 
 
 		before((request, response) -> {
+			response.header("Access-Control-Allow-Origin", "*");
 			response.header("Access-Control-Allow-Origin", "http://localhost:63342");
 			response.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
 			response.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Content-Length, Accept, Origin");
@@ -31,6 +32,10 @@ public class Webserver {
 		get("/api/dc/MemberAvatarUrl", "application/json", (request, response) -> {
 			return new ToJson(jda).AvatarUrl() != null ? new ToJson(jda).AvatarUrl() : "liste ist leer";
 
+		});
+
+		get("/api/dc/KickUser", "application/json", (request, response) -> {
+			return null;
 		});
 
 		get("/", (request, response) -> {
