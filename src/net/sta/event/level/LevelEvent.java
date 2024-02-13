@@ -10,5 +10,6 @@ public class LevelEvent extends LevelManager {
    public void startLevel(){
         LevelManager manager = new LevelManager(bool);
         manager.XpTimer();
+        manager.VoiceXpTimer();
    }
 }

@@ -46,7 +46,6 @@ async function generateHtml() {
                 avatarUrl = userAvatarData.Avatar;
             }
 
-            const userContainer = document.createElement('div');
             userContainer.classList.add('user-box');
             userContainer.innerHTML = `
         <img alt="Profilbild" class="avatar" src="${avatarUrl}">
@@ -97,7 +96,6 @@ test.addEventListener('click', function () {
         .catch(error => {
             console.error('Fetch Error:', error);
         });
-    console.log("etet");
 });
 
 

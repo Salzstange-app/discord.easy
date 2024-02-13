@@ -1,6 +1,7 @@
 package net.sta.webserver;
 import static spark.Spark.*;
 import net.dv8tion.jda.api.JDA;
+import net.sta.webserver.web.modules.KickUser;
 
 public class Webserver {
 	
@@ -35,6 +36,7 @@ public class Webserver {
 		});
 
 		get("/api/dc/KickUser", "application/json", (request, response) -> {
+			new KickUser(request.body().toString(), "Phe mit kev");
 			return null;
 		});
 

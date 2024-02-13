@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import net.sta.event.EventPublisher;
 import net.sta.event.level.MessageLevel;
+import net.sta.event.level.VoiceLevel;
 import net.sta.event.message.MessageGetter;
 import java.util.Objects;
 
@@ -44,7 +45,7 @@ public class BotManager extends EventPublisher {
                 GatewayIntent.GUILD_INVITES);
         builder.enableCache(CacheFlag.ONLINE_STATUS);
         builder.addEventListeners(new MessageGetter());
-        builder.addEventListeners(new MessageLevel());
+        builder.addEventListeners(new MessageLevel(), new VoiceLevel());
         builder.setStatus(ONLINESTATUS == null ? OnlineStatus.ONLINE : ONLINESTATUS);      
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
         

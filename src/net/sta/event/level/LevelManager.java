@@ -26,13 +26,6 @@ public class LevelManager implements MessageLevel, VoiceLevel, XpManager {
 
                     for (Member member : playerMessageTimer.keySet()) {
                         if (bool) {
-                            /*
-                            setMessagePlayerTime(member, getMessagePlayerTime(member) - 1);
-                            if (getMessagePlayerTime(member) == 0) {
-                                playerMessageTimer.remove(member);
-                            }
-
-                             */
                             setVoicePlayerTime(member, getVoicePlayerTime(member) - 1);
                             if (getVoicePlayerTime(member) == 0) {
                                 playerVoiceTimer.remove(member);
@@ -48,6 +41,22 @@ public class LevelManager implements MessageLevel, VoiceLevel, XpManager {
             }
         };
         new Timer().schedule(timerTask, 1000, 1000);
+    }
+
+    public void VoiceXpTimer(){
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for (Member member : playerVoiceTimer.keySet()) {
+                setVoicePlayerTime(member, getVoicePlayerTime(member) - 1);
+                if (getVoicePlayerTime(member) == 0) {
+                    playerVoiceTimer.remove(member);
+                    }
+                }
+            }
+
+        },1000, 1000);
     }
     public static Integer getPlayerXP(Member member) {
         return playerXP.get(member) != null ? playerXP.get(member) : 0;
