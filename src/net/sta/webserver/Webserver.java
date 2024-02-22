@@ -1,7 +1,11 @@
 package net.sta.webserver;
 import static spark.Spark.*;
 import net.dv8tion.jda.api.JDA;
+import net.sta.webserver.web.modules.BanUser;
 import net.sta.webserver.web.modules.KickUser;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Webserver {
 	
@@ -17,7 +21,7 @@ public class Webserver {
 
 
 		before((request, response) -> {
-			response.header("Access-Control-Allow-Origin", "*");
+			//response.header("Access-Control-Allow-Origin", "*");
 			response.header("Access-Control-Allow-Origin", "http://localhost:63342");
 			response.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
 			response.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With, Content-Length, Accept, Origin");
@@ -35,10 +39,59 @@ public class Webserver {
 
 		});
 
-		get("/api/dc/KickUser", "application/json", (request, response) -> {
-			new KickUser(request.body().toString(), "Phe mit kev");
-			return null;
+
+		//post request tauscht sozusagen daten aus mit dem web panel
+		post("/api/dc/BanUser", (request, response) -> {
+			//alle daten
+			String r = request.body().toString();
+
+			//ich splitte alles was mit einem minus abgezeichnet ist somit habe ich id und reason
+			List<String> s = Arrays.stream(r.split("-")).toList();
+
+			String memberId = "";
+
+			//entfernt die klammern und holt sich die Id
+			int startIndex = s.get(0).indexOf("(");
+			int endIndex = s.get(0).indexOf(")");
+			if (startIndex != -1 && endIndex != -1 && startIndex < endIndex) {
+				memberId = s.get(0).substring(startIndex + 1, endIndex);
+			}
+
+			System.out.println(memberId + " " + s.get(1));
+			//schickt daten rüber in eine andere klasse und dort wird er gebannt
+            new BanUser(memberId,s.get(1));
+
+			//schickt eine Nachricht zurück wenn alles gut gelaufen ist
+			return "{\"message\": \"Daten empfangen und verarbeitet\"}";
 		});
+
+
+		post("/api/dc/KickUser", (request, response) -> {
+			//alle daten
+			String r = request.body().toString();
+
+			System.out.println("test");
+			//ich splitte alles was mit einem minus abgezeichnet ist somit habe ich id und reason
+			List<String> s = Arrays.stream(r.split("-")).toList();
+
+			String memberId = "";
+
+			//entfernt die klammern und holt sich die Id
+			int startIndex = s.get(0).indexOf("(");
+			int endIndex = s.get(0).indexOf(")");
+			if (startIndex != -1 && endIndex != -1 && startIndex < endIndex) {
+				memberId = s.get(0).substring(startIndex + 1, endIndex);
+			}
+
+			System.out.println(memberId + " " + s.get(1));
+			//schickt daten rüber in eine andere klasse und dort wird er gebannt
+			new KickUser(memberId,s.get(1));
+
+			//schickt eine Nachricht zurück wenn alles gut gelaufen ist
+			return "{\"message\": \"Daten empfangen und verarbeitet\"}";
+		});
+
+
 
 		get("/", (request, response) -> {
 

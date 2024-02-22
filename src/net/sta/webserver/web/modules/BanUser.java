@@ -1,10 +1,8 @@
 package net.sta.webserver.web.modules;
 
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.requests.restaction.AuditableRestAction;
-
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
-
 import static net.sta.managers.BotManager.jda;
 
 public class BanUser {
@@ -12,33 +10,21 @@ public class BanUser {
     private String uuid;
     private String reason;
 
-    private Integer Time;
+    private Integer ChannelId = 123123;
 
-    public BanUser(String userId, String kickReason){
+    public BanUser(String userId, String bannreason){
         this.uuid = userId;
-        this.reason = kickReason;
+        this.reason = bannreason;
         userGetBanned();
     }
 
-
     private void userGetBanned(){
+
         Member member = jda.getGuilds().get(0).getMemberById(uuid);
-        AuditableRestAction<Void> banUnit;
+        member.ban(1, TimeUnit.DAYS).reason(reason).queue();
 
-        switch(Time){
-            case 1:
-                banUnit = member.ban(Time, TimeUnit.DAYS);
-            case 2:
-
-
-        }
-
-
-
-        if (reason.isEmpty()){
-            member.ban(1, TimeUnit.DAYS).reason("Keine Begründung Angegeben");
-        }else {
-            member.ban(2, TimeUnit.DAYS).reason(reason);
+        if (ChannelId != null){
+            jda.getGuilds().get(0).getTextChannelById("1037868392117436488").sendMessage("User: " + member.getEffectiveName() + " wurde gebannt am " + Instant.now()).queue();
         }
     }
 }

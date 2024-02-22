@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="/net/sta/webserver/web/css/style.css">
 </head>
+
+<header>
+    <div class="top-right">
+        <h1>User Management</h1>
+        <button class="button red" id="ban-button" onclick="sendBanData()"> User bannen</button>
+        <button class="button gray" id="kick-button" onclick="sendKickData()"> User kicken </button>
+        <div>
+            <input type="text" id="userIds" placeholder="User-IDs eingeben" oninput="getSuggestions(this.value)">
+            <ul id="suggestionList"></ul>
+        </div>
+        <div>
+            <input type="text" id="reason" placeholder="Grund eingeben">
+        </div>
+    </div>
+
+
+</header>
+
+
 <body>
 <aside class="sidebar">
     <div class="logo">
@@ -26,13 +45,12 @@
     <div id="userData" class="user-container">
         <!-- Hier werden die Benutzerdaten eingefügt -->
 
-
-        <textarea id="text" name="text" cols="35" rows="4"></textarea>
-        <input type="submit" id="send" value="Senden"/>
-
     </div>
 </main>
 
 <script src="/net/sta/webserver/web/javascript/index.js"></script>
+<script src="/net/sta/webserver/web/javascript/modules/BanUser.js"></script>
+<script src="/net/sta/webserver/web/javascript/modules/KickUser.js"></script>
+
 </body>
 </html>
