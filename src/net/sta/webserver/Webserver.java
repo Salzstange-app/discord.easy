@@ -3,11 +3,19 @@ import static spark.Spark.*;
 import net.dv8tion.jda.api.JDA;
 import net.sta.webserver.web.modules.BanUser;
 import net.sta.webserver.web.modules.KickUser;
+import spark.Spark;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
-public class Webserver {
+public class Webserver extends DiscordOAuth2{
 	
 	public Webserver(JDA jda) {
 		startWebserver(jda);
@@ -100,14 +108,50 @@ public class Webserver {
 		});
 
 
-		/*
 
-	DiscordOauth2
- 	das ist das ganze ouath2 discord scheiße das wollte ich austesten weil das mir ChatGpt gesagt hat und so wie es ist fonktoniert nur die hälfte kann
- 	ned die sachen getten =((
+
+
+
+
+
+		//DiscordAdminPanel Anmelde Stuff
+
+		Spark.get("/login", (request, response) -> {
+			response.redirect("https://discord.com/oauth2/authorize?client_id=" + clientId + "&redirect_uri=" + redirectUri + "&response_type=code&scope=identify");
+			return null;
+		});
+
+
+		Spark.get("/callback", (request, response) -> {
+			//gettet die queryParameter nach code=
+			String queryParams = request.queryParams("code");
+
+			if (DiscordOAuth2(queryParams)) {
+				response.redirect("http://localhost:63342/discordJDA/src/net/sta/webserver/web/html/index.html?_ijt=plgum13esg30aif56llnvgjv2c&_ij_reload=RELOAD_ON_SAVE");
+			}
+
+			return "Fehler beo der Authentifizierung";
+		});
+		Spark.get("/data", (request, response) -> {
+			return UserData;
+		});
+
+
+
+
+
+
+
+
+/*
+//	DiscordOauth2
+ //	das ist das ganze ouath2 discord scheiße das wollte ich austesten weil das mir ChatGpt gesagt hat und so wie es ist fonktoniert nur die hälfte kann
+ 	//ned die sachen getten =((
+
 		get("/login", (req, res) -> {
 			// Erstelle deinen Discord OAuth2-URL hier
-			String discordOAuthUrl = "https://discord.com/api/oauth2/authorize?client_id=1137845443976503347&redirect_uri=http://localhost:8080/callback&response_type=code&scope=identify";
+			//String discordOAuthUrl = "https://discord.com/api/oauth2/authorize?client_id=1137845443976503347&redirect_uri=http://localhost:8080/callback&response_type=code&scope=identify";
+			String discordOAuthUrl = "https://discord.com/api/oauth2/authorize?client_id=1137845443976503347&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fauth%2Fdiscord&scope=identify+guilds+email";
 
 			// Leite den Benutzer zur Discord-Anmeldeseite weiter
 			res.redirect(discordOAuthUrl);
@@ -115,7 +159,7 @@ public class Webserver {
 		});
 
 		// Callback-Endpunkt für Discord OAuth2
-		get("/callback", (req, res) -> {
+		get("/auth/discord", (req, res) -> {
 			// Verarbeite die Autorisierungsdaten, die Discord zurückschickt
 			String code = req.queryParams("code");
 			System.out.println(code);
@@ -129,7 +173,7 @@ public class Webserver {
 
 			String clientId = "1137845443976503347";
 			String clientSecret = "-POBpMNNJPYdFFIKH1Gr2wzFTc3Tj9dU";
-			String redirectUri = "http://localhost:8080/callback";
+			String redirectUri = "http://localhost:8080/auth/discord";
             try {
 				// Schritt 1: Token-Austausch
 				URL tokenUrl = new URL("https://discord.com/api/oauth2/token");
@@ -188,8 +232,10 @@ public class Webserver {
 
 			return "Erfolgreich authentifiziert!";
 		});
-*/
 
+
+
+ */
 
 		awaitInitialization();
 

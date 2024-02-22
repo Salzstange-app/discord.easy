@@ -135,3 +135,84 @@ function getSuggestions(inputValue) {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+//Discord admin panel Anmeldung
+
+
+
+const LoogedUser = [];
+
+function isAuthenticated() {
+    return false;
+
+}
+
+window.onload = function (){
+    if (!isAuthenticated()){
+        window.location.href='http://localhost:8080/login'
+    }else {
+
+    }
+}
+
+
+ async function getDataForLogin() {
+    const Url = "http://localhost:8080/data";
+    try {
+        const httprequest =  await fetch(Url);
+        const requestInJson = await httprequest.json();
+
+        console.log(requestInJson)
+        return requestInJson;
+    } catch (error) {
+        console.error("Fehler bei getDataForMember: ", error);
+        return [];
+    }
+}
+
+
+async function getGlobalNameAndAvatar() {
+    try {
+        const data = await getDataForLogin(); // Daten abrufen
+        if (data && data.length > 0) {
+            const firstEntry = data[0]; // Erstes Element aus den Daten
+            const globalName = firstEntry.global_name;
+            const avatar = firstEntry.avatar;
+            const userId = firstEntry.id;
+            console.log('Global Name:', globalName);
+            console.log('Avatar:', avatar);
+            console.log('userid:', userId);
+
+            sayHelloToUser(globalName, avatar, userId);
+
+            // Hier können Sie die erhaltenen Daten weiterverarbeiten
+        } else {
+            console.error('Keine Daten vorhanden.');
+        }
+    } catch (error) {
+        console.error('Fehler beim Verarbeiten der Daten:', error);
+    }
+}
+
+// Funktion aufrufen, um die global_name und avatar zu erhalten
+getGlobalNameAndAvatar();
+
+function sayHelloToUser(Username, imageId, userid){
+    var image = document.getElementById("image");
+
+    var link = "https://cdn.discordapp.com/avatars/" + userid + "/" + imageId + ".png";
+
+    image.src = (link);
+}
+

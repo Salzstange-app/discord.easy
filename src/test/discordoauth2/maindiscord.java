@@ -19,7 +19,7 @@ public class maindiscord {
         // Discord-Anwendungseinstellungen
         String clientId = "1137845443976503347";
         String clientSecret = "gPSR3ylPD4ky8vekyUgQR4QKOaj-FvGc";
-        String redirectUri = "http://localhost:4567/callback"; // Deine Callback-URL
+        String redirectUri = "http://localhost:4567/auth/discord"; // Deine Callback-URL
 
         // Starte die OAuth 2.0 Authentifizierung
         Spark.get("/login", (req, res) -> {
@@ -34,11 +34,11 @@ public class maindiscord {
             response.type("application/json");
         });
 
-
+//4567
 
 
         // Callback-Route
-        Spark.get("/callback", (req, res) -> {
+        Spark.get("/auth/discord", (req, res) -> {
             String code = req.queryParams("code");
 
             // Token-Austausch

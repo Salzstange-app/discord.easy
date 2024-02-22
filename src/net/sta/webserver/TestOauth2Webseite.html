@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        getDataForMember();
+        async function getDataForMember() {
+            let Url = "http://localhost:9595/data";
+            try {
+                const httprequest = await fetch(Url);
+                const requestInJson = await httprequest.json();
+
+                console.log(requestInJson)
+
+                return requestInJson;
+            } catch (error) {
+                console.error("Fehler bei getDataForMember: ", error);
+                return [];
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+
+<h1 id="test"> </h1>
+
+
+
+</body>
+</html>
