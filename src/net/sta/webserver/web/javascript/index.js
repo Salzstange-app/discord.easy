@@ -1,5 +1,4 @@
 
-
 async function getDataForMember() {
     let Url = "http://localhost:8080/api/dc/Member";
     try {
@@ -153,13 +152,16 @@ function getSuggestions(inputValue) {
 
 const LoogedUser = [];
 
+let as = false;
+
 function isAuthenticated() {
-    return false;
+    return true;
 
 }
 
 window.onload = function (){
     if (!isAuthenticated()){
+        as = true;
         window.location.href='http://localhost:8080/login'
     }else {
 
@@ -206,6 +208,7 @@ async function getGlobalNameAndAvatar() {
 }
 
 // Funktion aufrufen, um die global_name und avatar zu erhalten
+
 getGlobalNameAndAvatar();
 
 function sayHelloToUser(Username, imageId, userid){
@@ -214,5 +217,69 @@ function sayHelloToUser(Username, imageId, userid){
     var link = "https://cdn.discordapp.com/avatars/" + userid + "/" + imageId + ".png";
 
     image.src = (link);
+}
+
+
+document.addEventListener("DOMContentLoaded", getOnlineMember)
+
+//window.onload = getOnlineMember();
+
+let online = 0;
+let offline = 0;
+let idle = 0;
+let donotdisturb = 0;
+
+async function getOnlineMember() {
+    try {
+        const Url = "http://localhost:8080/api/dc/onlineMember";
+        const httprequest =  await fetch(Url);
+        const requestInJson = await httprequest.json();
+
+        const data = await requestInJson; // Daten abrufen
+        if (data && data.length > 0) {
+            const firstEntry = data[0]; // Erstes Element aus den Daten
+            const  Online = firstEntry.Online;
+            const Offline = firstEntry.Offline;
+            const Idle = firstEntry.Idle;
+            const DoNotDisturb = firstEntry.DoNotDisturb;
+
+
+            const xValues = ["Online", "Offline", "Idle", "Do Not Disturb"];
+            const yValues = [Online,Offline,Idle, DoNotDisturb];
+            const barColors = ["darkgreen", "lightgrey","yellow","red"];
+
+
+            new Chart("myChart", {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    legend: {display: false},
+                    title: {
+                        display: true,
+                        text: "OnlineStatus"
+                    }
+                }
+            });
+
+            console.log('Global Name:', Online);
+            console.log('Avatar:', Offline);
+            console.log('userid:', Idle);
+            console.log('userid:', DoNotDisturb);
+
+
+
+            // Hier können Sie die erhaltenen Daten weiterverarbeiten
+        } else {
+            console.error('Keine Daten vorhanden.');
+        }
+    } catch (error) {
+        console.error('Fehler beim Verarbeiten der Daten:', error);
+    }
 }
 

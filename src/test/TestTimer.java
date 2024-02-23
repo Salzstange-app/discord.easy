@@ -10,13 +10,19 @@ public class TestTimer {
 
 
 
+        int e = 10;
+
+
+
+        int test = e != 0 ? e : 102;
 
 
 
 
 
 
-        /*
+
+
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -33,7 +39,7 @@ public class TestTimer {
             }
         }, 0,6*1000);
 
-         */
+
 
     }
 

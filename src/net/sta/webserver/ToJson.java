@@ -1,8 +1,15 @@
 package net.sta.webserver;
 
 import java.util.Collection;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Member;
+import okhttp3.internal.concurrent.Task;
+
+import static net.sta.managers.BotManager.jda;
+
 public class ToJson {
 	
 	JDA jda;
@@ -56,5 +63,60 @@ public class ToJson {
 		return builder.toString();
 
 
+	}
+
+
+	static Integer OnlineMember = 0;
+	static Integer OfflineMember = 0;
+	static Integer IdleMember = 0;
+	static Integer DoNotDisturbMember = 0;
+
+
+	public String MemberOnlineStats() {
+		StringBuilder builder = new StringBuilder();
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+
+				for (Member member : jda.getGuilds().get(0).getMembers()){
+					if (!member.getUser().isBot()) {
+						switch (member.getOnlineStatus()) {
+							case ONLINE -> OnlineMember++;
+							case OFFLINE -> OfflineMember++;
+							case IDLE -> IdleMember++;
+							case DO_NOT_DISTURB -> DoNotDisturbMember++;
+						}
+					}
+				}
+				System.out.println("Online Member " + OnlineMember);
+				System.out.println("Offline Member " +OfflineMember);
+				System.out.println("Abwesende Member " +IdleMember);
+				System.out.println("Nicht störend Member " +DoNotDisturbMember);
+
+
+
+				builder.append("[");
+
+				builder.append("{\"Online\": \"").append(OnlineMember).append("\",").append("\"Offline\": \"").append(OfflineMember).append("\",").append("\"Idle\": \"").append(IdleMember).append("\",").append("\"DoNotDisturb\": \"").append(DoNotDisturbMember).append("\"}");
+				OnlineMember = 0;
+				OfflineMember = 0;
+				IdleMember = 0;
+				DoNotDisturbMember = 0;
+
+
+				builder.append("]");
+
+
+			}
+		}, 0, (60*1000)*5);
+
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+		return builder.toString();
 	}
 }

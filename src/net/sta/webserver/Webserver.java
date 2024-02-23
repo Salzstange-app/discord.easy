@@ -99,6 +99,11 @@ public class Webserver extends DiscordOAuth2{
 			return "{\"message\": \"Daten empfangen und verarbeitet\"}";
 		});
 
+		get("/api/dc/onlineMember", "application/json", (request, response) -> {
+
+			return new ToJson(jda).MemberOnlineStats();
+
+		});
 
 
 		get("/", (request, response) -> {
@@ -116,13 +121,13 @@ public class Webserver extends DiscordOAuth2{
 
 		//DiscordAdminPanel Anmelde Stuff
 
-		Spark.get("/login", (request, response) -> {
+		get("/login", (request, response) -> {
 			response.redirect("https://discord.com/oauth2/authorize?client_id=" + clientId + "&redirect_uri=" + redirectUri + "&response_type=code&scope=identify");
 			return null;
 		});
 
 
-		Spark.get("/callback", (request, response) -> {
+		get("/callback", (request, response) -> {
 			//gettet die queryParameter nach code=
 			String queryParams = request.queryParams("code");
 
@@ -132,9 +137,11 @@ public class Webserver extends DiscordOAuth2{
 
 			return "Fehler beo der Authentifizierung";
 		});
-		Spark.get("/data", (request, response) -> {
+		get("/data", (request, response) -> {
 			return UserData;
 		});
+
+
 
 
 

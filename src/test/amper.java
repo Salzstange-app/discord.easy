@@ -9,6 +9,22 @@ public class amper {
     public static void main(String[] args) throws InterruptedException {
 
 
+
+        Integer e = 0;
+
+        e++;
+
+
+        System.out.println(e);
+
+
+
+
+        e++;
+
+        System.out.println();
+
+
         String s = "\" ";
 
         System.out.printf("####### \t" + s + "\t #######");

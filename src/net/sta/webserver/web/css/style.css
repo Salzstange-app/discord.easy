@@ -160,3 +160,12 @@ a {
 a:hover {
     color: gray; /* Ändert die Textfarbe beim Überfahren mit der Maus */
 }
+
+
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ändere die Höhe nach Bedarf */
+}
