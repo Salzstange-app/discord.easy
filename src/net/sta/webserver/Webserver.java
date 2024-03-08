@@ -105,6 +105,10 @@ public class Webserver extends DiscordOAuth2{
 
 		});
 
+		get("/api/dc/Tickets", "application/json", (request, response) -> {
+			return new ToJson(jda).Tickets("Tickets");
+		});
+
 
 		get("/", (request, response) -> {
 

@@ -71,7 +71,6 @@ mainpage.addEventListener('click', function(){
     while (userDataContainer.firstChild) {
         userDataContainer.removeChild(userDataContainer.firstChild);
     }
-
 });
 
 

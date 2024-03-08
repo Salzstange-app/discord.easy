@@ -1,11 +1,17 @@
 package net.sta.webserver;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.internal.entities.ReceivedMessage;
+import net.sta.managers.BotManager;
+import net.sta.webserver.web.modules.GetTickets;
 import okhttp3.internal.concurrent.Task;
 
 import static net.sta.managers.BotManager.jda;
@@ -119,4 +125,31 @@ public class ToJson {
 
 		return builder.toString();
 	}
+
+
+	public String Tickets(String TicketCategoryName){
+		StringBuilder builder = new StringBuilder();
+
+		List<TextChannel> textChannels = GetTickets.getTicket(TicketCategoryName);
+
+		builder.append("{");
+		for (TextChannel textChannel : textChannels) {
+			builder.append("\"").append(textChannel.getName()).append("\":[");
+			for (Message message : textChannel.getHistory().retrievePast(50).complete()) {
+				builder.append("{")
+						.append("\"id\": ").append(message.getId()).append(", ")
+						.append("\"author\": \"").append(message.getAuthor()).append("\", ")
+						.append("\"content\": \"").append(message.getContentRaw()).append("\"")
+						.append("},");
+			}
+			builder.deleteCharAt(builder.length() - 1); // Remove trailing comma
+			builder.append("],");
+		}
+		builder.deleteCharAt(builder.length() - 1); // Remove trailing comma
+		builder.append("}");
+
+		return builder.toString();
+	}
+
+
 }
