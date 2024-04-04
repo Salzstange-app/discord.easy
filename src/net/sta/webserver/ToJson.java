@@ -95,11 +95,12 @@ public class ToJson {
 						}
 					}
 				}
+				/*
 				System.out.println("Online Member " + OnlineMember);
 				System.out.println("Offline Member " +OfflineMember);
 				System.out.println("Abwesende Member " +IdleMember);
 				System.out.println("Nicht störend Member " +DoNotDisturbMember);
-
+				 */
 
 
 				builder.append("[");
@@ -129,8 +130,35 @@ public class ToJson {
 
 	public String Tickets(String TicketCategoryName){
 		StringBuilder builder = new StringBuilder();
+		String prio = "Mittel";
+
 
 		List<TextChannel> textChannels = GetTickets.getTicket(TicketCategoryName);
+
+
+		int e = 1;
+		builder.append("{");
+		for (TextChannel textChannel : textChannels){
+			if (e >=3){
+				prio = "Hoch";
+			}
+			e++;
+			builder.append("\"").append(textChannel.getName()).append("\":[");
+			builder.append("{")
+					.append("\"id\": ").append(textChannel.getId()).append(", ")
+					.append("\"author\": \"").append(textChannel.getHistory().retrievePast(100).complete().get(0).getMember().getUser().getName()).append("\", ")
+					.append("\"prio\": \"").append(prio).append("\", ")
+					.append("\"ticketCreation\": \"").append(textChannel.getTimeCreated()).append("\"")
+					.append("},");
+			builder.deleteCharAt(builder.length() - 1); // Remove trailing comma
+			builder.append("],");
+		}
+
+
+		builder.deleteCharAt(builder.length() - 1); // Remove trailing comma
+		builder.append("}");
+
+/*
 
 		builder.append("{");
 		for (TextChannel textChannel : textChannels) {
@@ -139,7 +167,8 @@ public class ToJson {
 				builder.append("{")
 						.append("\"id\": ").append(message.getId()).append(", ")
 						.append("\"author\": \"").append(message.getAuthor()).append("\", ")
-						.append("\"content\": \"").append(message.getContentRaw()).append("\"")
+						.append("\"content\": \"").append(message.getContentRaw()).append("\", ")
+						.append("\"ticketCreation\": \"").append(textChannel.getTimeCreated()).append("\"")
 						.append("},");
 			}
 			builder.deleteCharAt(builder.length() - 1); // Remove trailing comma
@@ -147,6 +176,8 @@ public class ToJson {
 		}
 		builder.deleteCharAt(builder.length() - 1); // Remove trailing comma
 		builder.append("}");
+
+ */
 
 		return builder.toString();
 	}

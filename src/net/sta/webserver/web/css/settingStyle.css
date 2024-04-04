@@ -1,0 +1,156 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root{
+    /*main color von der webseite also das in der mitte*/
+    --primary-color: #333;
+    /*second color von der webseite also das ganz links (navbar)*/
+    --secondary-color: #222;
+    /* Font color */
+    --font-color: #fff;
+}
+.White_mode{
+    /*main color von der webseite also das in der mitte*/
+    --primary-color: #fff;
+    /*second color von der webseite also das ganz links (navbar)*/
+    --secondary-color: #F1F1F1;
+    /* Font color */
+    --font-color: #000000;
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS-Datei (style.css) */
+
+/* Stil für die Navigationsleiste */
+.sidebar {
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar .logo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 7%;
+    height: 7%;
+}
+
+.sidebar h1 {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 15px;
+}
+
+
+.sidebar h1 a {
+    text-decoration: none;
+    color: var(--font-color);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: var(--font-color);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+    color: #1f5eff;
+}
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.user-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-box {
+    background-color: #444;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.user-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+
+/* CSS für die Listen-Elemente */
+ul {
+    list-style-type: none; /* Entfernt die Standardliste-Punkte */
+    padding: 0; /* Entfernt den Abstand */
+}
+
+li {
+    margin-bottom: 10px; /* Fügt etwas Abstand zwischen den Listen-Elementen hinzu */
+}
+
+/* CSS für die Links */
+a {
+    text-decoration: none; /* Entfernt die Unterstreichung der Links */
+    color: white; /* Setzt die Textfarbe auf Schwarz */
+}
+
+/* CSS für Hover-Effekte der Links */
+a:hover {
+    color: gray; /* Ändert die Textfarbe beim Überfahren mit der Maus */
+}
+
+
+.dark-white{
+    display: flex;
+    justify-content: left;
+    margin-top: 30px;
+}
+
+.dark-white .dark-white-mode{
+
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+}

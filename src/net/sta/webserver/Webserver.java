@@ -126,7 +126,7 @@ public class Webserver extends DiscordOAuth2{
 		//DiscordAdminPanel Anmelde Stuff
 
 		get("/login", (request, response) -> {
-			response.redirect("https://discord.com/oauth2/authorize?client_id=" + clientId + "&redirect_uri=" + redirectUri + "&response_type=code&scope=identify");
+			response.redirect("https://discord.com/oauth2/authorize?client_id=" + clientId + "&redirect_uri=" + redirectUri + "&response_type=code&scope=guilds+identify");
 			return null;
 		});
 

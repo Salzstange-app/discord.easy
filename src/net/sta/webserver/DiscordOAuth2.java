@@ -60,7 +60,7 @@ public class DiscordOAuth2 {
     private static String getUserData(JsonObject responseToken) throws IOException {
         HttpsURLConnection userConnection = (HttpsURLConnection) new URL("https://discord.com/api/v10/users/@me").openConnection();
         userConnection.setRequestProperty("Authorization", "Bearer " + responseToken.get("access_token").getAsString());
-
+        System.out.println(responseToken.get("access_token"));
         if (userConnection.getResponseCode() == 200) {
             return new BufferedReader(new InputStreamReader(userConnection.getInputStream())).readLine();
         }

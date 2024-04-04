@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="/net/sta/webserver/web/css/style.css">
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CSS-Datei (style.css) */
+
+        /* Stil für die Navigationsleiste */
+        .sidebar {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar .logo {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 7%;
+            height: 7%;
+        }
+
+        .sidebar h1 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 15px;
+        }
+
+
+        .sidebar h1 a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+
+
+
+        .sidebar nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar nav ul li a:hover {
+            color: #1f5eff;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        .user-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .user-box {
+            background-color: #444;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .user-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+
+
+        .top-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .bottom-right {
+            position: absolute;
+            top: 350px;
+            right: 10px;
+        }
+
+        .button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button.red {
+            background-color: #ff4444;
+        }
+
+        .button.gray {
+            background-color: #ccc;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #888;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+
+        /* CSS für die Listen-Elemente */
+        ul {
+            list-style-type: none; /* Entfernt die Standardliste-Punkte */
+            padding: 0; /* Entfernt den Abstand */
+        }
+
+        li {
+            margin-bottom: 10px; /* Fügt etwas Abstand zwischen den Listen-Elementen hinzu */
+        }
+
+        /* CSS für die Links */
+        a {
+            text-decoration: none; /* Entfernt die Unterstreichung der Links */
+            color: white; /* Setzt die Textfarbe auf Schwarz */
+        }
+
+        /* CSS für Hover-Effekte der Links */
+        a:hover {
+            color: gray; /* Ändert die Textfarbe beim Überfahren mit der Maus */
+        }
+
+
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ändere die Höhe nach Bedarf */
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+
+
+
+
+
+        #ticket-stats {
+            display: flex;
+            justify-content: space-around; /* Hiermit werden die Elemente gleichmäßig horizontal verteilt */
+            margin-top: 40px;
+
+        }
+        #ticket-stats p {
+            flex: 1;
+            margin-right: 150px;
+            font-size: 20px
+        }
+
+        table {
+            margin-top: 60px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #555;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #555;
+        }
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+
+
+
+</script>
+
+<aside class="sidebar">
+    <div class="logo">
+        <img src="/net/sta/webserver/web/img/discordAvatar.png" alt="Logo" id="image">
+    </div>
+    <h1><a href="#" id="Admin-dashboard">Admin Dashboard</a></h1>
+    <nav>
+        <ul>
+            <li><a href="#tickets" id="Tickets"><i class="material-icons-outlined">mail</i>Tickets</a></li>
+            <li><a href="#users" id="user"><i class="material-symbols-outlined">person</i>Users</a></li>
+            <li><a href="/net/sta/webserver/web/html/settings.html"><i class="material-symbols-outlined">settings</i>Settings</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<header>
+    <div id="ticket-stats">
+        <p>Tickets offen: <span id="open-tickets">0</span></p>
+        <p>Tickets geschlossen: <span id="closed-tickets">0</span></p>
+        <p>Tickets gelöscht: <span id="deleted-tickets">0</span></p>
+        <p>Tickets bearbeitet: <span id="edited-tickets">0</span></p>
+    </div>
+</header>
+
+<main class="main-content">
+    <table id="ticket-table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Priorität
+                <select class="prio">
+                    <option value="all"></option>
+                    <option value="all">Niedrig</option>
+                    <option value="all">Mittel</option>
+                    <option value="all">Hoch</option>
+                </select>
+            </th>
+            <th>Status</th>
+            <th>Erstellungsdatum</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Hier werden die Ticketdaten dynamisch eingefügt -->
+        </tbody>
+    </table>
+
+
+    <div id="ticket-container" class="user-container" style="color: white">
+
+
+        <h3></h3>
+
+
+        <button onclick="sortTable()"> test</button>
+
+
+
+        <!-- Hier werden die Benutzerdaten eingefügt -->
+
+    </div>
+</main>
+<script src="/net/sta/webserver/web/javascript/modules/Ticket.js"></script>
+
+<script>
+
+
+
+    test();
+    let categorieLength = '';
+
+    async function test(){
+        try {
+            const Url = "http://localhost:8080/api/dc/Tickets";
+            const httprequest =  await fetch(Url);
+            const requestInJson = await httprequest.json();
+
+            const data = await requestInJson; // Daten abrufen
+
+            const categories = Object.keys(data).filter(key => Array.isArray(data[key]));
+
+
+            const tbody = document.querySelector('#ticket-table tbody');
+            tbody.innerHTML = '';
+
+
+            for (let i = 0; i < categories.length; i++) {
+
+                const row = document.createElement('tr');
+                const author =  data[categories[i]][0].author;
+                const subject =  categories[i];
+                const ticketCreation =  data[categories[i]][0].ticketCreation;
+                const prio =  data[categories[i]][0].prio;
+                categorieLength =  categories.length
+                row.innerHTML = `
+            <td>${author}</td>
+            <td>${subject}</td>
+            <td>${prio}</td>
+            <td>status</td>
+            <td>${ticketCreation}</td>
+        `;
+                tbody.appendChild(row);
+
+            }
+
+        } catch (error) {
+            console.error('Fehler beim Verarbeiten der Daten:', error);
+        }
+    }
+
+
+
+    function sortTable() {
+        const tableBody = document.querySelector("#ticket-table tbody");
+        const rows = Array.from(tableBody.querySelectorAll("tr"));
+
+        // Priorität aus dem Dropdown-Menü auswählen
+        const selectedPriority = document.querySelector(".prio").value;
+
+        // Sortieren der Reihen basierend auf der ausgewählten Priorität
+        rows.sort((a, b) => {
+            const prioA = getPriorityValue(a);
+            const prioB = getPriorityValue(b);
+
+            if (selectedPriority === "all" || prioA === prioB) {
+                return 0;
+            } else if (selectedPriority === "niedrig") {
+                return prioA === "Niedrig" ? -1 : 1;
+            } else if (selectedPriority === "mittel") {
+                return prioA === "Mittel" ? -1 : 1;
+            } else if (selectedPriority === "hoch") {
+                return prioA === "Hoch" ? -1 : 1;
+            }
+        });
+
+        // Entfernen aller vorhandenen Reihen aus der Tabelle
+        tableBody.innerHTML = "";
+
+        // Hinzufügen der sortierten Reihen zur Tabelle
+        rows.forEach(row => {
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Funktion, um die Priorität einer Zeile zu erhalten
+    function getPriorityValue(row) {
+        const priorityCell = row.querySelector("td:nth-child(3)"); // Hier 3, weil die Priorität die dritte Spalte ist
+        return priorityCell.textContent.trim();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+
+        filter();
+
+        var prio = [];
+        function filter(){
+            console.log("te")
+
+            for (let xc=0; xc < 5; xc++){
+               var testprio =  document.getElementsByClassName("prio");
+
+               prio = testprio.item(0).className;
+                console.log(prio)
+
+            }
+
+        }
+
+
+        const tickets = [
+            { name: 'Benutzer1', priority: 'Hoch', status: 'Offen', subject: 'Probleme mit Login', created: '2024-03-08' },
+            { name: 'Benutzer2', priority: 'Mittel', status: 'Geschlossen', subject: 'Fehler in der Bestellseite', created: '2024-03-06' },
+            { name: 'Benutzer3', priority: 'Niedrig', status: 'Offen', subject: 'Anfrage zu Produkt XYZ', created: '2024-03-07' }
+        ];
+
+        // Funktion zum Anzeigen der Ticketdaten
+        function displayTickets(data , categories) {
+
+
+
+            tickets.forEach(ticket => {
+
+            });
+
+            // Aktualisiere die Ticketstatistik
+            document.getElementById('open-tickets').textContent = tickets.filter(ticket => ticket.status === 'Offen').length;
+            document.getElementById('closed-tickets').textContent = tickets.filter(ticket => ticket.status === 'Geschlossen').length;
+        }
+
+        // Lade Ticketdaten beim Start
+
+     */
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

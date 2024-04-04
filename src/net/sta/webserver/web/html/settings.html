@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="/net/sta/webserver/web/css/settingStyle.css">
+
+</head>
+
+<body>
+<aside class="sidebar">
+    <div class="logo">
+        <img src="/net/sta/webserver/web/img/discordAvatar.png" alt="Logo" id="image">
+    </div>
+    <h1><a href="/net/sta/webserver/web/html/index.html" id="Admin-dashboard">Admin Dashboard</a></h1>
+    <nav>
+        <ul>
+            <li><a href="/test/htel.html" id="Tickets"><i class="material-icons-outlined">mail</i>Tickets</a></li>
+            <li><a href="#users" id="user"><i class="material-symbols-outlined">person</i>Users</a></li>
+            <li><a href="#settings"><i class="material-symbols-outlined">settings</i>Settings</a></li>
+        </ul>
+    </nav>
+</aside>
+<main class="main-content">
+
+
+    <div class="dark-white">
+        <button class="dark-white-mode" id="button" type="button" onclick="darkWhiteMode()">
+            white-mode
+        </button>
+
+    </div>
+
+    <div class="Discord-Guild">
+
+        <p>Trage hier deine GuildId ein um dieses Admin panel zu benutzen</p>
+        <input type="text" id="GuildId" placeholder="GuildId eintragen" oninput="guildId(this.value)">
+
+    </div>
+
+    <div class="">
+
+    </div>
+
+
+
+</main>
+<script src="/net/sta/webserver/web/javascript/settingsIndex.js"></script>
+
+</body>
+</html>
