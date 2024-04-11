@@ -25,4 +25,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: GithubActionsTest  # Ändere dies entsprechend deinem Projekt
-        path: target/dos.jar  # Passe den Pfad entsprechend deiner JAR-Datei an
+        path: target/*.jar  # Passe den Pfad entsprechend deiner JAR-Datei an
