@@ -20,6 +20,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.login.LoginException;
 
+import static net.sta.managers.BotManager.jda;
+
 @Guild("1037829795725197383")
 
 public class testMain extends EventAdapter {
@@ -41,7 +43,7 @@ public class testMain extends EventAdapter {
       //  b.setEvents(new levelCommand());
        //( b.setEvents(new MessageLevel());
 
-        Webserver webserver = new Webserver(b.jda);
+        Webserver webserver = new Webserver(jda);
       // b.addListener(new L);
         b.setPrefix("!");
 
