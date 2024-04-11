@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Ändere dies entsprechend deiner Standardbranch-Namen
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: '20'  # Ändere dies entsprechend deiner Java-Version
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    - name: Upload JAR
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-java-app  # Ändere dies entsprechend deinem Projekt
+        path: target/*.jar  # Passe den Pfad entsprechend deiner JAR-Datei an
