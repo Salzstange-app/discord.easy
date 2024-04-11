@@ -7,7 +7,7 @@ public class MessageException extends Exception{
 		return "Ich wurde ausgelöst";
 	}
 	public void firstException() {
-		
+		getMessage();
 	}
 
 }

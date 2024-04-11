@@ -19,30 +19,54 @@
         <ul>
             <li><a href="/test/htel.html" id="Tickets"><i class="material-icons-outlined">mail</i>Tickets</a></li>
             <li><a href="#users" id="user"><i class="material-symbols-outlined">person</i>Users</a></li>
-            <li><a href="#settings"><i class="material-symbols-outlined">settings</i>Settings</a></li>
+            <li><a href="#settings" id="navbar-settings"><i class="material-symbols-outlined">settings</i>Settings</a></li>
+            <li><a href="#" id="navbar-logout"><i class="material-symbols-outlined">Logout</i>Logout</a></li>
         </ul>
     </nav>
 </aside>
 <main class="main-content">
 
 
+
     <div class="dark-white">
         <button class="dark-white-mode" id="button" type="button" onclick="darkWhiteMode()">
-            white-mode
+            WhiteMode
         </button>
 
     </div>
 
-    <div class="Discord-Guild">
 
-        <p>Trage hier deine GuildId ein um dieses Admin panel zu benutzen</p>
-        <input type="text" id="GuildId" placeholder="GuildId eintragen" oninput="guildId(this.value)">
-
+<div class="main-container">
+    <div class="container">
+        <div class="border">
+            <h2>Guild Id</h2>
+            <p>Trage hier deine GuildId ein, <br>
+                um dieses Admin panel zu benutzen</p>
+            <input type="text" id="GuildId" placeholder="GuildId eintragen" oninput="guildId(this.value)">
+            <button class="sendGuildButton">Send</button>
+        </div>
     </div>
 
-    <div class="">
+    <div class="container">
+        <div class="Server-border">
+            <div class="text">
+                <h1>Server Stats</h1>
 
+                <h3>ServerName</h3>
+                <p>{$Name}</p>
+
+                <h3>Server Owner</h3>
+                <p>{$Owner}</p>
+
+                <h3>Member Count</h3>
+                <p>{$amount}</p>
+
+                <h3>Server Boosts</h3>
+                <p>{$Boosts}</p>
+            </div>
+        </div>
     </div>
+</div>
 
 
 
