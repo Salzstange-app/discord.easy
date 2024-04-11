@@ -1,5 +1,6 @@
 package net.sta.event.message;
 
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.util.Arrays;

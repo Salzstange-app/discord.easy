@@ -1,21 +1,28 @@
 package test;
 
 import net.sta.Anotation.Guild;
+import net.sta.commands.levelCommand;
 import net.sta.event.EventPublisher;
+import net.sta.event.events.Event;
 import net.sta.event.level.LevelEvent;
+import net.sta.event.level.MessageLevel;
+import net.sta.event.listener.EventAdapter;
+import net.sta.event.listener.EventListener;
+import net.sta.event.message.MessageReceivedEvent;
 import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.sta.webserver.ToJson;
 import net.sta.webserver.Webserver;
 import net.sta.webserver.web.modules.GetTickets;
+import org.jetbrains.annotations.NotNull;
 
 
 import javax.security.auth.login.LoginException;
 
 @Guild("1037829795725197383")
 
-public class testMain extends EventPublisher {
+public class testMain extends EventAdapter {
 
   
 	public static Boolean on_of = false;
@@ -25,10 +32,17 @@ public class testMain extends EventPublisher {
         Object[] events = {
             new test0(),
             new testMain(),
+            new levelCommand()
         };
+        b.addListener(new levelCommand());
+        //b.setEvents(new levelCommand());
+
+
+      //  b.setEvents(new levelCommand());
+       //( b.setEvents(new MessageLevel());
 
         Webserver webserver = new Webserver(b.jda);
-       // b.addListener(new tste());
+      // b.addListener(new L);
         b.setPrefix("!");
 
         LevelEvent levelEvent = new LevelEvent(true);

@@ -1,6 +1,6 @@
 package test.jdatest;
 
-import net.sta.event.level.LevelManager;
+import net.sta.managers.LevelManager;
 import net.sta.event.listener.EventAdapter;
 import net.sta.event.message.MessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;

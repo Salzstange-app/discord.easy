@@ -1,8 +1,8 @@
-package net.sta.event.listener;
+package net.sta.event.message;
 
 import net.dv8tion.jda.api.entities.Member;
 
-public interface Message {
+public interface IMessage {
     String getMessage();
     Member getMember();
 }

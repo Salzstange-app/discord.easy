@@ -13,6 +13,7 @@ public class MessageGetter extends ListenerAdapter {
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
 		Message = event.getMessage();
+		System.out.println(Message);
 		if (!event.getAuthor().isBot()){
 			for (EventListener listener : listeners) {
 				listener.onMessageReceivedEvent(new net.sta.event.message.MessageReceivedEvent(event.getJDA()));
