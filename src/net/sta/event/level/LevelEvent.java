@@ -1,5 +1,7 @@
 package net.sta.event.level;
 
+import net.sta.managers.LevelManager;
+
 @SuppressWarnings("unused")
 public class LevelEvent extends LevelManager {
     Boolean bool;
@@ -10,6 +12,7 @@ public class LevelEvent extends LevelManager {
    public void startLevel(){
         LevelManager manager = new LevelManager(bool);
         manager.XpTimer();
-        manager.VoiceXpTimer();
+        if (bool)
+            manager.VoiceXpTimer();
    }
 }

@@ -1,4 +1,4 @@
-package net.sta.event.tempchannel;
+package net.sta.managers;
 
 public class TempChannelManager {
 }

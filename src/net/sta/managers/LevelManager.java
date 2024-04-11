@@ -1,9 +1,8 @@
-package net.sta.event.level;
+package net.sta.managers;
 
 import net.dv8tion.jda.api.entities.Member;
 import net.sta.event.level.Manager.MessageLevel;
 import net.sta.event.level.Manager.VoiceLevel;
-import net.sta.event.events.XpManager;
 
 import java.util.ConcurrentModificationException;
 import java.util.HashMap;
@@ -23,18 +22,10 @@ public class LevelManager implements MessageLevel, VoiceLevel, XpManager {
             @Override
             public void run() {
                 try {
-
                     for (Member member : playerMessageTimer.keySet()) {
-                        if (bool) {
-                            setVoicePlayerTime(member, getVoicePlayerTime(member) - 1);
-                            if (getVoicePlayerTime(member) == 0) {
-                                playerVoiceTimer.remove(member);
-                            }
-                        } else {
                             setMessagePlayerTime(member, getMessagePlayerTime(member) - 1);
-                            if (getMessagePlayerTime(member) == 0) {
+                        if (getMessagePlayerTime(member) == 0) {
                                 playerMessageTimer.remove(member);
-                            }
                         }
                     }
                 }catch (ConcurrentModificationException | NullPointerException ignored){}
@@ -48,15 +39,15 @@ public class LevelManager implements MessageLevel, VoiceLevel, XpManager {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
+
                 for (Member member : playerVoiceTimer.keySet()) {
-                setVoicePlayerTime(member, getVoicePlayerTime(member) - 1);
-                if (getVoicePlayerTime(member) == 0) {
-                    playerVoiceTimer.remove(member);
-                    }
+                        randXp(member, 10);
+                        System.out.println("VoicePlayerTime " + getVoicePlayerTime(member));
                 }
             }
+            //jede 10 sekunden
 
-        },1000, 1000);
+        },10000, 10000);
     }
     public static Integer getPlayerXP(Member member) {
         return playerXP.get(member) != null ? playerXP.get(member) : 0;

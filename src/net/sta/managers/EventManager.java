@@ -1,4 +1,4 @@
-package net.sta.event;
+package net.sta.managers;
 
 import net.dv8tion.jda.api.events.GenericEvent;
 

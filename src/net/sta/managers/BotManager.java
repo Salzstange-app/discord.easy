@@ -13,7 +13,9 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import net.sta.event.EventPublisher;
 import net.sta.event.level.MessageLevel;
 import net.sta.event.level.VoiceLevel;
+import net.sta.event.listener.EventListener;
 import net.sta.event.message.MessageGetter;
+
 import java.util.Objects;
 
 public class BotManager extends EventPublisher {
@@ -48,8 +50,10 @@ public class BotManager extends EventPublisher {
         builder.addEventListeners(new MessageLevel(), new VoiceLevel());
         builder.setStatus(ONLINESTATUS == null ? OnlineStatus.ONLINE : ONLINESTATUS);      
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
-        
         jda = builder.build();
+        //Wird benötigt um das LevelSystem zu benutzen.
+        builder.addEventListeners(new MessageLevel());
+        builder.addEventListeners(new MessageGetter());
 
         try {
             Thread.sleep(650);
@@ -58,10 +62,20 @@ public class BotManager extends EventPublisher {
 
     }
 
+/*
+    public void setEvents(EventListener eventListener) throws InterruptedException {
+        jda.awaitReady().addEventListener(eventListener);
+    }
+    */
+    public void setEvents(EventListener eventListener) throws InterruptedException {
+        jda.awaitReady().addEventListener(eventListener);
+    }
 
     public void setEvents(Object[] eventListener) throws InterruptedException {
         jda.awaitReady().addEventListener(eventListener);
     }
+
+
 
     public void setPrefix(String prefix){
         Prefix = prefix;
