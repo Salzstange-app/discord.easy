@@ -4,9 +4,11 @@
 
 :root{
     /*main color von der webseite also das in der mitte*/
-    --primary-color: #333;
+    --primary-color: #696969;
     /*second color von der webseite also das ganz links (navbar)*/
-    --secondary-color: #222;
+    --secondary-color: #808080;
+
+    --border-color: #444444;
     /* Font color */
     --font-color: #fff;
 }
@@ -15,6 +17,7 @@
     --primary-color: #fff;
     /*second color von der webseite also das ganz links (navbar)*/
     --secondary-color: #F1F1F1;
+    --border-color: #444444;
     /* Font color */
     --font-color: #000000;
 }
@@ -34,18 +37,25 @@ body {
 /* Stil für die Navigationsleiste */
 .sidebar {
     background-color: var(--secondary-color);
+    border-radius: 40px;
     color: var(--font-color);
-    padding: 20px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 10px;
+    transition: transform 1s;
+}
+.sidebar:hover {
+    transform: scale(105%,105%);
+    transition: linear 1s;
 }
 
 .sidebar .logo {
+    padding-top: 50px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -80,7 +90,7 @@ body {
 .sidebar nav ul li a {
     text-decoration: none;
     color: var(--font-color);
-    font-size: 20px;
+    font-size: 25px;
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
@@ -89,6 +99,12 @@ body {
 .sidebar nav ul li a:hover {
     color: #1f5eff;
 }
+
+
+#navbar-settings {
+    margin-top: 500px;
+}
+
 .main-content {
     margin-left: 220px;
     padding: 20px;
@@ -141,16 +157,98 @@ a:hover {
 
 .dark-white{
     display: flex;
-    justify-content: left;
+    justify-content: right;
     margin-top: 30px;
 }
+.dark-white-mode{
 
-.dark-white .dark-white-mode{
-
-    background-color: var(--secondary-color);
-    color: var(--font-color);
-    border-radius: 15px;
-    text-decoration: none;
+    color: #1cc49d;
+    background-color: #1b2f31;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100px;
     font-size: 1rem;
-    font-weight: 300;
+    border: none;
+    font-weight: 600;
+    transition: transform 0.1s;
 }
+
+.dark-white-mode:hover{
+        transform: scale(102%,102%);
+        transition: linear 0.1s;
+}
+
+
+.main-container{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+
+.container {
+    margin-left: 1200px;
+    padding-top: 100px;
+    color: var(--font-color);
+}
+
+.container .border {
+    background-color: var(--border-color);
+    padding: 20px;
+    border-radius: 20px;
+}
+.container .border p{
+    font-size: 23px;
+}
+
+.container .border input{
+    font-size: 15px;
+    width: 350px;
+    height: 45px;
+}
+
+.container .border .sendGuildButton{
+    font-size: 15px;
+    width: 50px;
+    height: 50px;
+}
+
+.container .border h2{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
+
+.container {
+    margin-bottom: 200px;
+    color: var(--font-color);
+    margin-left: 200px;
+}
+
+.container .Server-border {
+    background-color: var(--border-color);
+    width: 280px;
+    height: 480px;
+    border-radius: 20px;
+}
+
+.container .Server-border .text {
+    padding-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.container .Server-border h3 {
+   font-size: 23px;
+}
+.container .Server-border p {
+    font-size: 18px;
+}
+
