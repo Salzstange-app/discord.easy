@@ -51,7 +51,7 @@ body {
 }
 .sidebar:hover {
     transform: scale(105%,105%);
-    transition: linear 1s;
+    transition: linear 0.5s;
 }
 
 .sidebar .logo {
@@ -59,8 +59,11 @@ body {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
-    width: 7%;
-    height: 7%;
+    width: 12%;
+    height: 12%;
+}
+.sidebar .logo img{
+    border-radius: 50%;
 }
 
 .sidebar h1 {
@@ -102,7 +105,7 @@ body {
 
 
 #navbar-settings {
-    margin-top: 500px;
+    margin-top: 450px;
 }
 
 .main-content {

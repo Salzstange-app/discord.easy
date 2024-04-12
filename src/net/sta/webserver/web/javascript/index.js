@@ -24,7 +24,8 @@ async function getDataForAvatarUrl() {
 }
 
 async function generateHtml() {
-    const userDataContainer = document.getElementById('userData');
+    console.log("test")
+    const userDataContainer = document.getElementsByClassName('userData');
 
     // Daten für Avatar-URLs abrufen
     const avatarUrlData = await getDataForAvatarUrl();

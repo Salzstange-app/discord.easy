@@ -34,7 +34,7 @@ public class testMain extends EventAdapter {
         //  b.setEvents(new levelCommand());
         //( b.setEvents(new MessageLevel());
 
-        Webserver webserver = new Webserver(b.jda);
+        Webserver webserver = new Webserver(BotManager.jda);
         // b.addListener(new L);
         b.setPrefix("!");
 

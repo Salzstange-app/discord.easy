@@ -1,9 +1,32 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root{
+    /*main color von der webseite also das in der mitte*/
+    --primary-color: #696969;
+    /*second color von der webseite also das ganz links (navbar)*/
+    --secondary-color: #808080;
+
+    --border-color: #444444;
+    /* Font color */
+    --font-color: #fff;
+}/*
+.White_mode{
+    /*main color von der webseite also das in der mitte*/
+   /* --primary-color: #fff;
+    /*second color von der webseite also das ganz links (navbar)*/
+   /* --secondary-color: #F1F1F1;
+    --border-color: #444444;
+    /* Font color */
+ /*   --font-color: #000000;
+}
+*/
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--font-color);
     margin: 0;
     padding: 0;
 }
@@ -12,24 +35,35 @@ body {
 
 /* Stil für die Navigationsleiste */
 .sidebar {
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 40px;
+    color: var(--font-color);
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 10px;
+    transition: transform 1s;
+}
+.sidebar:hover {
+    transform: scale(105%,105%);
+    transition: linear 0.6s;
 }
 
 .sidebar .logo {
+    padding-top: 50px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
-    width: 7%;
-    height: 7%;
+    width: 12%;
+    height: 12%;
+}
+
+.sidebar .logo img{
+    border-radius: 50%;
 }
 
 .sidebar h1 {
@@ -49,19 +83,17 @@ body {
 
 .sidebar h1 a {
     text-decoration: none;
-    color: #fff;
+    color: var(--font-color);
     font-size: 20px;
     display: flex;
     align-items: center;
 }
 
 
-
-
 .sidebar nav ul li a {
     text-decoration: none;
-    color: #fff;
-    font-size: 20px;
+    color: var(--font-color);
+    font-size: 25px;
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
@@ -70,6 +102,23 @@ body {
 .sidebar nav ul li a:hover {
     color: #1f5eff;
 }
+
+
+#navbar-settings {
+    margin-top: 450px;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.user-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .main-content {
     margin-left: 220px;
     padding: 20px;

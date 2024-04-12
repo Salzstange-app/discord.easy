@@ -11,11 +11,13 @@ import java.util.ArrayList;
 
 public class DiscordOAuth2 {
 
-
     static String clientId = "1137845443976503347";
     static String clientSecret = "gPSR3ylPD4ky8vekyUgQR4QKOaj-FvGc";
     static String redirectUri = "http://localhost:8080/callback";
     static ArrayList<String> UserData = new ArrayList<>();
+
+    private static String DiscordAccessToken = "";
+    private static String DiscordRefreshToken = "";
 
     static Boolean DiscordOAuth2(String queryCode){
 
@@ -24,6 +26,12 @@ public class DiscordOAuth2 {
             if (connection.getResponseCode() == 200) {
 
                 JsonObject responseToken = getToken(connection);
+
+                DiscordAccessToken = String.valueOf(responseToken.get("access_token"));
+                DiscordRefreshToken = String.valueOf(responseToken.get("refresh_token"));
+
+                System.out.println("DiscordAccessToken: " + DiscordAccessToken);
+                System.out.println("DiscordRefreshToken: " + DiscordRefreshToken);
 
                 if (!UserData.isEmpty()) {
                     for (String s : UserData) {
@@ -50,7 +58,6 @@ public class DiscordOAuth2 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String line;
         JsonObject responseToken = null;
-        // System.out.println("reader " + reader.readLine());
         while ((line = reader.readLine()) != null) {
             responseToken = JsonParser.parseString(line.toString()).getAsJsonObject();
             return responseToken;
@@ -60,7 +67,6 @@ public class DiscordOAuth2 {
     private static String getUserData(JsonObject responseToken) throws IOException {
         HttpsURLConnection userConnection = (HttpsURLConnection) new URL("https://discord.com/api/v10/users/@me").openConnection();
         userConnection.setRequestProperty("Authorization", "Bearer " + responseToken.get("access_token").getAsString());
-        System.out.println(responseToken.get("access_token"));
         if (userConnection.getResponseCode() == 200) {
             return new BufferedReader(new InputStreamReader(userConnection.getInputStream())).readLine();
         }
