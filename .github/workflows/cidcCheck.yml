@@ -24,11 +24,12 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Upload and Test
+      - name: Upload
         uses: actions/upload-artifact@v4.3.1
         with:
           name:  uploadjar
           path:  target/*.jar
+      - name: Test .jar file
       - run: java -jar upload.jar
 
         
