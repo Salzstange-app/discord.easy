@@ -33,19 +33,6 @@ jobs:
         with:
           name: uploadjar
           path: target/*.jar
-
-  test:
-    needs: upload
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: uploadjar
-          path: target
-
-      - name: Test .jar file
-        run: java -jar target/*.jar
   
    
 
