@@ -44,7 +44,7 @@ jobs:
         if: always()
         with:
           webhook: https://discord.com/api/webhooks/1230494956985258005/iOMraSyMwUglOCAe1WgboihCjmTgqnhRQIIEzVQSfE-cNl65H02XLytuTfI0EsNBkqjw
-          title: "CiCD Pipeline"
+          title: "[CiCD Pipeline](https://github.com/Salzstange-app/discord.easy/blob/main/.github/workflows/cidcCheck.yml)"
           color: 0x0000ff
           status: ${{ job.status }}
   
