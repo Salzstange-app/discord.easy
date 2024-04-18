@@ -44,9 +44,9 @@ jobs:
         if: always()
         with:
           webhook: https://discord.com/api/webhooks/1230494956985258005/iOMraSyMwUglOCAe1WgboihCjmTgqnhRQIIEzVQSfE-cNl65H02XLytuTfI0EsNBkqjw
-          title: Click [here](https://github.com/sarisia/actions-status-discord) to download!
+          title: CICD Pipeline
           color: 0x0000ff
-          status: ${{ job.status }}
+          description: "Status: ${{ job.status }}"
   
    
   
