@@ -13,7 +13,6 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import net.sta.event.EventPublisher;
 import net.sta.event.level.MessageLevel;
 import net.sta.event.level.VoiceLevel;
-import net.sta.event.listener.EventListener;
 import net.sta.event.message.MessageGetter;
 
 import java.util.Objects;
@@ -62,18 +61,6 @@ public class BotManager extends EventPublisher {
 
     }
 
-/*
-    public void setEvents(EventListener eventListener) throws InterruptedException {
-        jda.awaitReady().addEventListener(eventListener);
-    }
-    */
-    public void setEvents(EventListener eventListener) throws InterruptedException {
-        jda.awaitReady().addEventListener(eventListener);
-    }
-
-    public void setEvents(Object[] eventListener) throws InterruptedException {
-        jda.awaitReady().addEventListener(eventListener);
-    }
 
 
 
