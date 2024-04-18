@@ -44,6 +44,7 @@ jobs:
         if: always()
         with:
           webhook: https://discord.com/api/webhooks/1230494956985258005/iOMraSyMwUglOCAe1WgboihCjmTgqnhRQIIEzVQSfE-cNl65H02XLytuTfI0EsNBkqjw
+          title: "CiCD Pipeline"
           color: 0x0000ff
           status: ${{ job.status }}
   
