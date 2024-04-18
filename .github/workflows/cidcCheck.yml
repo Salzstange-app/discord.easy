@@ -20,7 +20,7 @@ jobs:
           java-version: '20'
           distribution: oracle
 
-      - name: Build with Maven
+      - name: Build Maven
         run: mvn -B package --file pom.xml
 
 
