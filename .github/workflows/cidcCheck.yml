@@ -34,8 +34,19 @@ jobs:
           name: uploadjar
           path: target/*.jar
   
-   
+  
+  DiscordPush:
+    runs-on: ubuntu-latest
+    needs: upload
+    steps:
+      - name: DiscordWebhook
+        uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: https://discord.com/api/webhooks/1230494956985258005/iOMraSyMwUglOCAe1WgboihCjmTgqnhRQIIEzVQSfE-cNl65H02XLytuTfI0EsNBkqjw
 
+  
+   
   
    
   
