@@ -45,14 +45,14 @@ public class BotManager extends EventPublisher {
                 GatewayIntent.MESSAGE_CONTENT,
                 GatewayIntent.GUILD_INVITES);
         builder.enableCache(CacheFlag.ONLINE_STATUS);
-        builder.addEventListeners(new MessageGetter());
-        builder.addEventListeners(new MessageLevel(), new VoiceLevel());
         builder.setStatus(ONLINESTATUS == null ? OnlineStatus.ONLINE : ONLINESTATUS);      
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
         jda = builder.build();
         //Wird benötigt um das LevelSystem zu benutzen.
-        builder.addEventListeners(new MessageLevel());
+
+
         builder.addEventListeners(new MessageGetter());
+        builder.addEventListeners(new MessageLevel(), new VoiceLevel());
 
         try {
             Thread.sleep(650);
