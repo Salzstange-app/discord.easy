@@ -21,14 +21,15 @@ public class testMain extends EventAdapter {
     public static Boolean on_of = false;
     public static void main(String[] args) throws LoginException, InterruptedException {
 
-        BotManager b = new BotManager("MTA1NjM0NDA5OTM2OTc4NzQ3Mw.GwPFbg.AFTT4X0GDALz74dUfnotQVFn8YJwQltRDZSWTE", Activity.watching("to the Moon"), OnlineStatus.ONLINE);
+        BotManager b = new BotManager("MTA1NjM0NDA5OTM2OTc4NzQ3Mw.Gqsizv.UblQhgzoaFoMvI2lmkjo9gPZ4eQGi7ykZ6Yx8Q", Activity.watching("to the Moon"), OnlineStatus.ONLINE);
         Object[] events = {
-                new test0(),
                 new testMain(),
                 new levelCommand()
         };
-        b.addListener(new levelCommand());
-        //b.setEvents(new levelCommand());
+
+        teste.tes();
+        //b.addListener(new levelCommand());
+       // b.setEvents(new levelCommand());
 
 
         //  b.setEvents(new levelCommand());
