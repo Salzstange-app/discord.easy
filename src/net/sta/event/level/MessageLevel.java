@@ -1,6 +1,5 @@
 package net.sta.event.level;
 
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.sta.event.listener.EventAdapter;
 import net.sta.event.message.MessageReceivedEvent;
 import net.sta.managers.XpManager;
