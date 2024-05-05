@@ -47,12 +47,14 @@ public class BotManager extends EventPublisher {
         builder.enableCache(CacheFlag.ONLINE_STATUS);
         builder.setStatus(ONLINESTATUS == null ? OnlineStatus.ONLINE : ONLINESTATUS);      
         builder.setActivity(ACTIVITY == null ? Activity.watching("Developer Salzstange") : ACTIVITY);
-        jda = builder.build();
+
         //Wird benötigt um das LevelSystem zu benutzen.
-
-
         builder.addEventListeners(new MessageGetter());
-        builder.addEventListeners(new MessageLevel(), new VoiceLevel());
+        builder.addEventListeners(new VoiceLevel());
+
+        jda = builder.build();
+
+
 
         try {
             Thread.sleep(650);

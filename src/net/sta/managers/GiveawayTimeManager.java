@@ -1,9 +1,11 @@
-package net.sta.event.special;
+package net.sta.managers;
+
+import net.sta.event.special.GiveawayLogik;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GiveawayTimeManager extends GiveawayLogik{
+public class GiveawayTimeManager extends GiveawayLogik {
 
 
 
@@ -26,7 +28,7 @@ private static long parseTimeString(String timeString) {
     long totalMilliseconds = 0;
 
     // Aufteilen der Zeitangabe in Bestandteile
-    String[] parts = timeString.split(" ");
+    String[] parts = timeString.split(",");
     for (String part : parts) {
         char unit = part.charAt(part.length() - 1); // Letzte Zeichen der Teilzeichenfolge
 

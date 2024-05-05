@@ -13,6 +13,7 @@ public class MessageLevel extends EventAdapter implements net.sta.event.level.Ma
         if (canGetMessageXp(event.getMessage().getMember())){
             setMessagePlayerTime(event.getMessage().getMember(), 10);
             randXp(event.getMessage().getMember(), 10);
+
         }
     }
 }
