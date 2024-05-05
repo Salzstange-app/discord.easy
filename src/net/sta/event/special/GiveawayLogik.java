@@ -16,15 +16,6 @@ public class GiveawayLogik extends ListenerAdapter {
     Map<Member, Integer> MemberWinnerList = new HashMap<>();
 
 
-
-
-
-    /*protected Member getWinner(){
-        return allMember.get(new Random().nextInt(0, MemberWinnerList.size()));
-    }
-
-     */
-
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
         if (event.getInteraction().equals("button-success")){

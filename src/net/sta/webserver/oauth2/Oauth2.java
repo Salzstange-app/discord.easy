@@ -1,6 +1,4 @@
-package net.sta.oauth2;
-
-import java.util.ArrayList;
+package net.sta.webserver.oauth2;
 
 public class Oauth2 extends RequestManager{
 

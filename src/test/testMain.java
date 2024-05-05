@@ -8,7 +8,7 @@ import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.sta.webserver.Webserver;
-
+import test.jdatest.tste;
 
 
 import javax.security.auth.login.LoginException;
@@ -27,6 +27,7 @@ public class testMain extends EventAdapter {
                 new levelCommand()
         };
 
+        b.addListener(new tste());
         teste.tes();
         //b.addListener(new levelCommand());
        // b.setEvents(new levelCommand());

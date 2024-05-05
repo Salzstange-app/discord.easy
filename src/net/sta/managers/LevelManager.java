@@ -12,10 +12,6 @@ import java.util.TimerTask;
 public class LevelManager implements MessageLevel, VoiceLevel, XpManager {
 
     public static HashMap<Member, Integer> playerXP = new HashMap<>();
-    private final Boolean bool;
-    public LevelManager(Boolean voice){
-        this.bool = voice;
-    }
 
     public void XpTimer(){
         TimerTask timerTask = new TimerTask() {

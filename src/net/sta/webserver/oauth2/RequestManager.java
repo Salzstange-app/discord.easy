@@ -1,4 +1,4 @@
-package net.sta.oauth2;
+package net.sta.webserver.oauth2;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
