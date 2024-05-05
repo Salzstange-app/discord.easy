@@ -9,11 +9,11 @@ import net.dv8tion.jda.api.entities.User;
 
 public class Ipermission {
 	
-	private IPermissionHolder ipermholder;
+	private final IPermissionHolder ipermholder;
 	private Member member = null;
 	private User user; 
 	private Role role = null;
-	private Guild guild = new IGuildHandler().getGuild();
+	private final Guild guild = IGuildHandler.getGuild();
 	
 	
 	public Ipermission(IPermissionHolder IPermHolder) {

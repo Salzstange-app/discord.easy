@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class DiscordOAuth2 {
-
     static String clientId = "1137845443976503347";
     static String clientSecret = "gPSR3ylPD4ky8vekyUgQR4QKOaj-FvGc";
     static String redirectUri = "http://localhost:8080/callback";

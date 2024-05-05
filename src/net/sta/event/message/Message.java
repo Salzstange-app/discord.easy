@@ -1,6 +1,5 @@
 package net.sta.event.message;
 
-import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.util.Arrays;
@@ -10,6 +9,7 @@ public interface Message{
      default void sendMessage(String message){
          MessageGetter.Message.getChannel().sendMessage(message).queue();
     }
+
      default void sendEmbed(MessageEmbed... emebeds){
         MessageGetter.Message.getChannel().sendMessageEmbeds(Arrays.asList(emebeds)).queue();
     }

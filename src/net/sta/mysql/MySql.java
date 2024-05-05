@@ -1,14 +1,16 @@
 package net.sta.mysql;
 
+import lombok.Getter;
+
 import java.sql.*;
 
 public class MySql {
-	public static Connection con;
-	private final String host;
-	private final String port;
-	private final String database;
-	private final String username;
-	private final String password;
+	@Getter public static Connection con;
+	@Getter private final String host;
+	@Getter private final String port;
+	@Getter private final String database;
+	@Getter private final String username;
+	@Getter private final String password;
 
 	public MySql(String Host, String Port, String Database, String Username, String Password) {
 		this.host = Host;
@@ -19,30 +21,6 @@ public class MySql {
 		MySqlconnection();
 	}
 
-	public Connection getConnection() {
-		return con;
-	}
-
-	public String getDatabase() {
-		return database;
-	}
-
-	public String getHost() {
-		return host;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public String getPort() {
-		return port;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
 	private void MySqlconnection() {
 		if (!isConnected()) {
 			try {
@@ -50,7 +28,7 @@ public class MySql {
 						password);
 				System.out.println("[MySql] connect");
 			} catch (SQLException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		} else {
 			System.err.println("connection failed Please check your connection");
@@ -58,7 +36,7 @@ public class MySql {
 	}
 
 	public boolean isConnected() {
-		return (con == null ? false : true);
+		return (con != null);
 	}
 
 }
