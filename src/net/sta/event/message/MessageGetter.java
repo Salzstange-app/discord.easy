@@ -17,7 +17,6 @@ public class MessageGetter extends ListenerAdapter {
 		if (!event.getAuthor().isBot()){
 			for (EventListener listener : listeners) {
 				listener.onMessageReceivedEvent(new net.sta.event.message.MessageReceivedEvent(event.getJDA()));
-				break;
 			}
 		}
 

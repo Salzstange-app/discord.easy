@@ -8,6 +8,8 @@ import net.sta.managers.BotManager;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.sta.webserver.Webserver;
+import test.jdatest.msg1;
+import test.jdatest.msg2;
 import test.jdatest.tste;
 
 
@@ -27,7 +29,9 @@ public class testMain extends EventAdapter {
                 new levelCommand()
         };
 
-        b.addListener(new tste());
+
+        b.addListener(new msg1());
+        b.addListener(new msg2());
         teste.tes();
         //b.addListener(new levelCommand());
        // b.setEvents(new levelCommand());
