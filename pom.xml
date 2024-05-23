@@ -63,5 +63,14 @@
        </dependency>
 
    </dependencies>
-  
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>EasyJDA</name>
+            <url>https://maven.pkg.github.com/Salzstange-app/discord.easy</url>
+        </repository>
+    </distributionManagement>
+
+
 </project>
