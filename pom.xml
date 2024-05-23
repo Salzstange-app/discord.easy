@@ -8,9 +8,10 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>3.10.1</version>
         <configuration>
-          <release>20</release>
+          <source>20</source>
+          <target>20</target>
         </configuration>
       </plugin>
     </plugins>
