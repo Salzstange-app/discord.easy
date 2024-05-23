@@ -10,8 +10,6 @@ import java.util.List;
 public class VoiceLevel extends ListenerAdapter implements net.sta.event.level.Manager.VoiceLevel, XpManager {
     List<Member> memberList = new ArrayList<>();
 
-
-
     @Override
     public void onGuildVoiceUpdate(GuildVoiceUpdateEvent event) {
         if (event.getChannelJoined() != null){
@@ -30,7 +28,6 @@ public class VoiceLevel extends ListenerAdapter implements net.sta.event.level.M
                     break;
                 }
             }
-
         }
     }
 }

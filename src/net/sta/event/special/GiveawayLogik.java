@@ -11,26 +11,46 @@ import java.util.Random;
 
 public class GiveawayLogik extends ListenerAdapter {
 
-    ArrayList<Member> allMember = new ArrayList<>();
+    static ArrayList<Member> allEnteredMember = new ArrayList<>();
+    static Member lastWinner = null;
     Map<Member, Integer> MemberWinnerList = new HashMap<>();
-    protected Member getWinner(){
-        return allMember.get(new Random().nextInt(0, MemberWinnerList.size()));
-    }
+
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
         if (event.getInteraction().equals("button-success")){
-            if (MemberWinnerList.equals(event.getMember())){
-                MemberWinnerList.remove(event.getMember());
-                allMember.remove(event.getMember());
+
+            if (allEnteredMember.equals(event.getMember())){
+                allEnteredMember.remove(event.getMember());
             }else {
-                MemberWinnerList.put(event.getMember(), 0);
-                allMember.add(event.getMember());
+                allEnteredMember.add(event.getMember());
             }
             System.out.println(event.getMember());
         }
-        if (getWinner() != null){
-            event.getButton().asDisabled();
+    }
+
+    protected static Member getWinner(){
+        Member randomMember = allEnteredMember.get(new Random().nextInt(allEnteredMember.size()));
+
+        if (lastWinner == null){
+            lastWinner = randomMember;
+            return randomMember;
+        }
+
+        else {
+            if (randomMember == lastWinner){
+                boolean lastWinnerWinChance = Math.random() < 0.15;
+                if (lastWinnerWinChance){
+                    lastWinner = randomMember;
+                    return lastWinner;
+                }else {
+                    lastWinner = randomMember;
+                    return randomMember;
+                }
+            }else {
+                lastWinner = randomMember;
+                return  lastWinner;
+            }
         }
     }
 }

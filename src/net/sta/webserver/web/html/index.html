@@ -41,20 +41,24 @@
     <div class="logo">
         <img src="/net/sta/webserver/web/img/discordAvatar.png" alt="Logo" id="image">
     </div>
-    <h1><a href="#" id="Admin-dashboard">Admin Dashboard</a></h1>
+    <h1><a href="/net/sta/webserver/web/html/index.html" id="Admin-dashboard">Admin Dashboard</a></h1>
     <nav>
         <ul>
             <li><a href="/test/htel.html" id="Tickets"><i class="material-icons-outlined">mail</i>Tickets</a></li>
-            <li><a href="#users" id="user"><i class="material-symbols-outlined">person</i>Users</a></li>
-            <li><a href="/net/sta/webserver/web/html/settings.html"><i class="material-symbols-outlined">settings</i>Settings</a></li>
+            <li><a href="/net/sta/webserver/web/html/user.html" id="user" onclick="generateHtml()"><i class="material-symbols-outlined">person</i>Users</a></li>
+            <li><a href="#settings" id="navbar-settings"><i class="material-symbols-outlined">settings</i>Settings</a></li>
+            <li><a href="/net/sta/webserver/web/html/login.html" id="navbar-logout"><i class="material-symbols-outlined">Logout</i>Logout</a></li>
         </ul>
     </nav>
 </aside>
-<main class="main-content">
-    <div id="ticket-container" class="user-container" style="color: white">
-        <!-- Hier werden die Benutzerdaten eingefügt -->
 
-    </div>
+
+<div class="userData">
+
+</div>
+
+<main class="main-content">
+
 </main>
 <script src="/net/sta/webserver/web/javascript/index.js"></script>
 <script src="/net/sta/webserver/web/javascript/modules/BanUser.js"></script>
