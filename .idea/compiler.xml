@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="easy_jda1" />
+        <module name="EJDA" />
       </profile>
     </annotationProcessing>
   </component>
