@@ -15,7 +15,7 @@ import test.jdatest.tste;
 
 import javax.security.auth.login.LoginException;
 
-@Guild("1037829795725197383")
+@Guild("12345")
 
 public class testMain extends EventAdapter {
 
@@ -23,7 +23,7 @@ public class testMain extends EventAdapter {
     public static Boolean on_of = false;
     public static void main(String[] args) throws LoginException, InterruptedException {
 
-        BotManager b = new BotManager("MTA1NjM0NDA5OTM2OTc4NzQ3Mw.Gqsizv.UblQhgzoaFoMvI2lmkjo9gPZ4eQGi7ykZ6Yx8Q", Activity.watching("to the Moon"), OnlineStatus.ONLINE);
+        BotManager b = new BotManager("", Activity.watching("to the Moon"), OnlineStatus.ONLINE);
         Object[] events = {
                 new testMain(),
                 new levelCommand()
